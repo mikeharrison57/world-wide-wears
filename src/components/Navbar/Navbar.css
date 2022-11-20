@@ -1,0 +1,29 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  margin: .5rem
+}
+
+.search-and-cart {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  width: 2.5rem;
+}
+
+.search {
+  padding: 1.5rem;
+  display: flex;
+}
+
+.cart {
+  padding: .5rem;
+  margin: .5rem;
+  display: flex;
+}
