@@ -1,19 +1,20 @@
-import Search from '../../assets/search-icon.png'
+import Search from '../../assets/search-icon.png';
 import Cart from '../../assets/cart-icon.png';
+import './Navbar.css';
 
 const Navbar = () => {
 	return (
-		<header>
-			<h1>World Wide Wears</h1>
+		<header className='navbar'>
+			<h1 className='title'>World Wide Wears</h1>
 			<button>About Us</button>
-			<article>
-				<div>
+			<article className='search-and-cart'>
+				<div className='search'>
 					<input type='text' placeholder='Search' />
-					<img alt='search-icon' src={Search} />
+					<img alt='search-icon' src={Search} className='icon' />
 				</div>
-				<div>
+				<div className='cart'>
 					<p>0</p>
-					<img alt='cart-icon' src={Cart} />
+					<img alt='cart-icon' src={Cart} className='icon' />
 				</div>
 			</article>
 		</header>
