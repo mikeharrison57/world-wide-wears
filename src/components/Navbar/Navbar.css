@@ -17,9 +17,22 @@
   width: 2.5rem;
 }
 
+.icon:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: all .5s;
+  opacity: .7;
+}
+
 .search {
-  padding: 1.5rem;
+  padding: 1rem;
   display: flex;
+  background-color: orange;
+  border-radius: 10px;
+}
+
+.search-icon {
+  border: solid black 1px;
 }
 
 .cart {

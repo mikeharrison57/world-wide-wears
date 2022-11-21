@@ -8,6 +8,19 @@ const Navbar = ({ getSearchTerm }) => {
 
 	const submitSearchInput = () => {
 		getSearchTerm(searchInput);
+		clearInput();
+	};
+
+	const handleKeyDown = (e) => {
+		if (e.key === 'Enter') {
+			e.preventDefault();
+			getSearchTerm(searchInput);
+			clearInput();
+		}
+	};
+
+	const clearInput = () => {
+		setSearchInput('');
 	};
 
 	return (
@@ -18,13 +31,15 @@ const Navbar = ({ getSearchTerm }) => {
 				<div className='search'>
 					<input
 						type='text'
+						value={searchInput}
 						placeholder='Search'
 						onChange={(e) => setSearchInput(e.target.value)}
+						onKeyDown={handleKeyDown}
 					/>
 					<img
 						alt='search-icon'
 						src={Search}
-						className='icon'
+						className='search-icon icon'
 						onClick={submitSearchInput}
 					/>
 				</div>
