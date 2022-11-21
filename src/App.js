@@ -40,7 +40,7 @@ const App = () => {
 				<main>
 					{console.log(searchTerm)}
 					<Navbar getSearchTerm={getSearchTerm} />
-					<Banner />
+					{/* <Banner /> */}
 					<ProductContainer products={products} />
 				</main>
 			)}
