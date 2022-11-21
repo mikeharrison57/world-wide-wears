@@ -41,7 +41,7 @@ const App = () => {
 			) : (
 				<main>
 					{console.log(searchTerm)}
-					<Navbar getSearchTerm={getSearchTerm} searchTerm={searchTerm} />
+					<Navbar getSearchTerm={getSearchTerm}  />
 					{/* <Banner /> */}
 					<Switch>
 						<Route exact path='/'>
@@ -51,7 +51,16 @@ const App = () => {
 							exact
 							path='/:searchTerm'
 							render={({ match }) => {
-								return <SearchResults searchTerm={match.params.searchTerm} error={error} />;
+								return (
+									<>
+									{console.log(match.params.searchTerm)}
+									<SearchResults
+										searchTerm={match.params.searchTerm}
+										// searchTerm={searchTerm}
+										error={error}
+									/>
+									</>
+								);
 							}}
 						/>
 					</Switch>

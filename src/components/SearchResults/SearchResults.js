@@ -10,7 +10,7 @@ const SearchResults = ({ searchTerm }) => {
 	const [error, setError] = useState(false);
 
 	const getSearchedItems = async () => {
-		fetchSearchedItems(searchTerm)
+		fetchSearchedItems(searchTerm, goToNextPage())
 			.then((data) => {
 				setSearchedProducts([...searchedProducts, ...data.results]);
 				setPagination({ ...pagination, ...data.pagination });
@@ -23,11 +23,16 @@ const SearchResults = ({ searchTerm }) => {
 
 	useEffect(() => {
 		getSearchedItems();
-	}, [searchTerm]);
+	}, [searchTerm, pagination.currentPage]);
 
 	const resultCards = searchedProducts.map((product) => {
 		return <Product key={Math.random()} product={product} />;
 	});
+
+	const goToNextPage = () => {
+		let pageNum = pagination.currentPage;
+		return pageNum++;
+	};
 
 	return (
 		<>
@@ -39,13 +44,16 @@ const SearchResults = ({ searchTerm }) => {
 						<h1>No Results For That Search. Please try another!</h1>
 					) : (
 						<>
-							{console.log(pagination)}
+							{/* {console.log(pagination)} */}
 							<h2 className='results-message'>
-								{pagination.totalResults} RESULTS FOR "{searchTerm}"
+								{searchedProducts.length} of {pagination.totalResults} Results
+								For "{searchTerm}"
 							</h2>
 							<article className='pagination-navigation'>
 								<button className='nav-button'>Previous Page</button>
-								<button className='nav-button'>Next Page</button>
+								<button className='nav-button' onClick={goToNextPage}>
+									Next Page
+								</button>
 							</article>
 							<section className='result-container'>{resultCards}</section>
 							<article className='pagination-navigation'>
