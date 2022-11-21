@@ -11,6 +11,7 @@ import { fetchSaleItems } from './utils/api-calls';
 const App = () => {
 	const [products, setProducts] = useState([]);
 	const [error, setError] = useState(false);
+	const [searchTerm, setSearchTerm] = useState('');
 
 	const getSaleItems = async () => {
 		fetchSaleItems()
@@ -23,6 +24,10 @@ const App = () => {
 			});
 	};
 
+	const getSearchTerm = searchTerm => {
+		setSearchTerm(searchTerm)
+	};
+
 	useEffect(() => {
 		getSaleItems();
 	}, []);
@@ -33,9 +38,10 @@ const App = () => {
 				<Error />
 			) : (
 				<main>
-					<Navbar />
+					{console.log(searchTerm)}
+					<Navbar getSearchTerm={getSearchTerm} />
 					<Banner />
-          <ProductContainer products={products} />
+					<ProductContainer products={products} />
 				</main>
 			)}
 		</>
