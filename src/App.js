@@ -1,12 +1,14 @@
-// Components
-import Navbar from './components/Navbar/Navbar';
-import Banner from './components/Banner/Banner';
-import Error from './components/Error/Error';
-import ProductContainer from './components/ProductContainer/ProductContainer';
-
 // Functions and Hooks
 import { useState, useEffect } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import { fetchSaleItems } from './utils/api-calls';
+
+// Components
+import Navbar from './components/Navbar/Navbar';
+// import Banner from './components/Banner/Banner';
+import Error from './components/Error/Error';
+import ProductContainer from './components/ProductContainer/ProductContainer';
+import SearchResults from './components/SearchResults/SearchResults';
 
 const App = () => {
 	const [products, setProducts] = useState([]);
@@ -24,8 +26,8 @@ const App = () => {
 			});
 	};
 
-	const getSearchTerm = searchTerm => {
-		setSearchTerm(searchTerm)
+	const getSearchTerm = (searchTerm) => {
+		setSearchTerm(searchTerm);
 	};
 
 	useEffect(() => {
@@ -41,7 +43,14 @@ const App = () => {
 					{console.log(searchTerm)}
 					<Navbar getSearchTerm={getSearchTerm} />
 					{/* <Banner /> */}
-					<ProductContainer products={products} />
+					<Switch>
+						<Route exact path='/'>
+							<ProductContainer products={products} />
+						</Route>
+						<Route exact path='/:searchTerm'>
+							<SearchResults />
+						</Route>
+					</Switch>
 				</main>
 			)}
 		</>
