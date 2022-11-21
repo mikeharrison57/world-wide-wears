@@ -27,10 +27,16 @@ const App = () => {
 	}, []);
 
 	return (
-		<main>
-			<Navbar />
-			<Banner />
-		</main>
+		<>
+			{error ? (
+				<Error />
+			) : (
+				<main>
+					<Navbar />
+					<Banner />
+				</main>
+			)}
+		</>
 	);
 };
 
