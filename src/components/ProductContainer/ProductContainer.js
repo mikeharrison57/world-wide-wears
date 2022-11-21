@@ -1,10 +1,13 @@
 import Product from "../Product/Product";
 
-const ProductContainer = () => {
+const ProductContainer = ({ products }) => {
+  const productCards = products.map((product) => {
+    return <Product key={Math.random()} product={product} />
+  })
 
   return (
     <section>
-      {/* {products} */}
+      {productCards}
     </section>
   )
 }

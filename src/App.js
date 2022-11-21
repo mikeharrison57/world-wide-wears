@@ -2,6 +2,7 @@
 import Navbar from './components/Navbar/Navbar';
 import Banner from './components/Banner/Banner';
 import Error from './components/Error/Error';
+import ProductContainer from './components/ProductContainer/ProductContainer';
 
 // Functions and Hooks
 import { useState, useEffect } from 'react';
@@ -34,6 +35,7 @@ const App = () => {
 				<main>
 					<Navbar />
 					<Banner />
+          <ProductContainer products={products} />
 				</main>
 			)}
 		</>
