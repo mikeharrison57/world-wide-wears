@@ -23,6 +23,7 @@ const SearchResults = ({ searchTerm }) => {
 
 	useEffect(() => {
 		getSearchedItems();
+		setSearchedProducts([]);
 	}, [searchTerm, pagination.currentPage]);
 
 	const resultCards = searchedProducts.map((product) => {

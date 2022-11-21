@@ -46,7 +46,7 @@ const Navbar = ({ getSearchTerm }) => {
 							alt='search-icon'
 							src={Search}
 							className='search-icon icon'
-							onSubmit={submitSearchInput}
+							onClick={submitSearchInput}
 						/>
 					</Link>
 				</div>
