@@ -10,9 +10,20 @@ export const fetchSaleItems = async () => {
 	return responseJson;
 };
 
-export const fetchSearchedItems = async (searchTerm, pageNum) => {
+export const fetchSearchedItems = async (searchTerm) => {
 	const response = await fetch(
-		`${primaryUrl}${searchTerm}&resultsFormat=native&page=${pageNum || '1'}`
+		`${primaryUrl}${searchTerm}&resultsFormat=native&page=1`
+	);
+	if (!response.ok) {
+		throw new Error(response.statusText);
+	}
+	const responseJson = await response.json();
+	return responseJson;
+};
+
+export const fetchNewPage = async (searchTerm, pageNum) => {
+	const response = await fetch(
+		`${primaryUrl}${searchTerm}&resultsFormat=native&page=${pageNum}`
 	);
 	if (!response.ok) {
 		throw new Error(response.statusText);

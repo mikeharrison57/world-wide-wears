@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { Link, Route, useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Search from '../../assets/search-icon.png';
 import Cart from '../../assets/cart-icon.png';
 import './Navbar.css';
-import SearchResults from '../SearchResults/SearchResults';
 
 const Navbar = ({ getSearchTerm }) => {
 	let history = useHistory();

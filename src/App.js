@@ -53,6 +53,18 @@ const App = () => {
 								return <SearchResults searchTerm={match.params.searchTerm} />;
 							}}
 						/>
+						<Route
+							exact
+							path='/:searchTerm/:pageNum'
+							render={({ match }) => {
+								return (
+									<SearchResults
+										searchTerm={match.params.searchTerm}
+										pageNum={match.params.pageNum}
+									/>
+								);
+							}}
+						/>
 					</Switch>
 				</main>
 			)}

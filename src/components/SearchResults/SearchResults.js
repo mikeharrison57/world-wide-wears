@@ -1,18 +1,31 @@
 import { useState, useEffect } from 'react';
-import { fetchSearchedItems } from '../../utils/api-calls';
+import { Link } from 'react-router-dom';
+import { fetchSearchedItems, fetchNewPage } from '../../utils/api-calls';
 import Product from '../Product/Product';
 import Error from '../Error/Error';
 import './SearchResults.css';
 
-const SearchResults = ({ searchTerm }) => {
+const SearchResults = ({ searchTerm, pageNum }) => {
 	const [searchedProducts, setSearchedProducts] = useState([]);
 	const [pagination, setPagination] = useState({});
 	const [error, setError] = useState(false);
 
 	const getSearchedItems = async () => {
-		fetchSearchedItems(searchTerm, goToNextPage())
+		fetchSearchedItems(searchTerm)
 			.then((data) => {
-				setSearchedProducts([...searchedProducts, ...data.results]);
+				setSearchedProducts([...data.results]);
+				setPagination({ ...pagination, ...data.pagination });
+			})
+			.catch((error) => {
+				console.log(error);
+				setError(true);
+			});
+	};
+
+	const getNewPage = async () => {
+		fetchNewPage(searchTerm, pageNum.toString())
+			.then((data) => {
+				setSearchedProducts([...data.results]);
 				setPagination({ ...pagination, ...data.pagination });
 			})
 			.catch((error) => {
@@ -24,49 +37,60 @@ const SearchResults = ({ searchTerm }) => {
 	useEffect(() => {
 		getSearchedItems();
 		setSearchedProducts([]);
-	}, [searchTerm, pagination.currentPage]);
+	}, [searchTerm]);
+
+	useEffect(() => {
+		getNewPage();
+		setSearchedProducts([]);
+	}, [pageNum]);
 
 	const resultCards = searchedProducts.map((product) => {
 		return <Product key={Math.random()} product={product} />;
 	});
 
 	const goToNextPage = () => {
-		let pageNum = pagination.currentPage;
-		return pageNum++;
+		return pagination.currentPage++;
 	};
 
-	return (
-		<>
-			{error ? (
-				<Error />
-			) : (
-				<section>
-					{!searchedProducts.length ? (
-						<h1>No Results For That Search. Please try another!</h1>
-					) : (
-						<>
-							{/* {console.log(pagination)} */}
-							<h2 className='results-message'>
-								{searchedProducts.length} of {pagination.totalResults} Results
-								For "{searchTerm}"
-							</h2>
-							<article className='pagination-navigation'>
-								<button className='nav-button'>Previous Page</button>
-								<button className='nav-button' onClick={goToNextPage}>
-									Next Page
-								</button>
-							</article>
-							<section className='result-container'>{resultCards}</section>
-							<article className='pagination-navigation'>
-								<button className='nav-button'>Previous Page</button>
-								<button className='nav-button'>Next Page</button>
-							</article>
-						</>
-					)}
-				</section>
-			)}
-		</>
-	);
+	if (searchedProducts.length) {
+		return (
+			<>
+				{error ? (
+					<Error />
+				) : (
+					<section>
+						{!searchedProducts.length ? (
+							<h1>No Results For {searchTerm}. Please try another!</h1>
+						) : (
+							<>
+								<h2 className='results-message'>
+									{searchedProducts.length} of {pagination.totalResults} Results
+									For "{searchTerm}"
+								</h2>
+								<article className='pagination-navigation'>
+									<button className='nav-button'>Previous Page</button>
+									<Link to={`/${searchTerm}/${pagination.currentPage}`}>
+										<button className='nav-button' onClick={goToNextPage}>
+											Next Page
+										</button>
+									</Link>
+								</article>
+								<section className='result-container'>{resultCards}</section>
+								<article className='pagination-navigation'>
+									<button className='nav-button'>Previous Page</button>
+									<Link to={`/${searchTerm}/${pagination.currentPage}`}>
+										<button className='nav-button' onClick={goToNextPage}>
+											Next Page
+										</button>
+									</Link>
+								</article>
+							</>
+						)}
+					</section>
+				)}
+			</>
+		);
+	}
 };
 
 export default SearchResults;
