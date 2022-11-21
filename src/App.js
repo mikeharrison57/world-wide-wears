@@ -41,14 +41,14 @@ const App = () => {
 			) : (
 				<main>
 					{console.log(searchTerm)}
-					<Navbar getSearchTerm={getSearchTerm} />
+					<Navbar getSearchTerm={getSearchTerm} searchTerm={searchTerm} />
 					{/* <Banner /> */}
 					<Switch>
 						<Route exact path='/'>
 							<ProductContainer products={products} />
 						</Route>
-						<Route exact path='/:searchTerm'>
-							<SearchResults />
+						<Route exact path=':searchTerm'>
+							<SearchResults searchTerm={searchTerm} />
 						</Route>
 					</Switch>
 				</main>

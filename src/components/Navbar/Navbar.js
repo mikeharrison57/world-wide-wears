@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Search from '../../assets/search-icon.png';
 import Cart from '../../assets/cart-icon.png';
 import './Navbar.css';
 
-const Navbar = ({ getSearchTerm }) => {
+const Navbar = ({ getSearchTerm, searchTerm }) => {
 	const [searchInput, setSearchInput] = useState('');
 
 	const submitSearchInput = () => {
@@ -29,19 +30,23 @@ const Navbar = ({ getSearchTerm }) => {
 			<button>About Us</button>
 			<article className='search-and-cart'>
 				<div className='search'>
-					<input
-						type='text'
-						value={searchInput}
-						placeholder='Search'
-						onChange={(e) => setSearchInput(e.target.value)}
-						onKeyDown={handleKeyDown}
-					/>
-					<img
-						alt='search-icon'
-						src={Search}
-						className='search-icon icon'
-						onClick={submitSearchInput}
-					/>
+					<Link to={`/${searchInput}`}>
+						<input
+							type='text'
+							value={searchInput}
+							placeholder='Search'
+							onChange={(e) => setSearchInput(e.target.value)}
+							onKeyDown={handleKeyDown}
+						/>
+					</Link>
+					<Link to={`/${searchInput}`}>
+						<img
+							alt='search-icon'
+							src={Search}
+							className='search-icon icon'
+							onClick={submitSearchInput}
+						/>
+					</Link>
 				</div>
 				<div className='cart'>
 					<p>0</p>
