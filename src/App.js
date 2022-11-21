@@ -47,9 +47,13 @@ const App = () => {
 						<Route exact path='/'>
 							<ProductContainer products={products} />
 						</Route>
-						<Route exact path=':searchTerm'>
-							<SearchResults searchTerm={searchTerm} />
-						</Route>
+						<Route
+							exact
+							path='/:searchTerm'
+							render={({ match }) => {
+								return <SearchResults searchTerm={match.params.searchTerm} error={error} />;
+							}}
+						/>
 					</Switch>
 				</main>
 			)}

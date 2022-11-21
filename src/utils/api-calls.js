@@ -2,9 +2,7 @@ const primaryUrl =
 	'http://api.searchspring.net/api/search/search.json?siteId=scmq7n&q=';
 
 export const fetchSaleItems = async () => {
-	const response = await fetch(
-		`${primaryUrl}sale&resultsFormat=native&page=1`
-	);
+	const response = await fetch(`${primaryUrl}sale&resultsFormat=native&page=1`);
 	if (!response.ok) {
 		throw new Error(response.statusText);
 	}
@@ -13,7 +11,9 @@ export const fetchSaleItems = async () => {
 };
 
 export const fetchSearchedItems = async (searchTerm, pageNum) => {
-	const response = await fetch(`${primaryUrl}${searchTerm}&resultsFormat=native&page=${pageNum || '1'}`);
+	const response = await fetch(
+		`${primaryUrl}${searchTerm}&resultsFormat=native&page=${pageNum || '1'}`
+	);
 	if (!response.ok) {
 		throw new Error(response.statusText);
 	}
