@@ -1,4 +1,5 @@
 import Product from "../Product/Product";
+import './ProductContainer.css';
 
 const ProductContainer = ({ products }) => {
   const productCards = products.map((product) => {
@@ -6,7 +7,7 @@ const ProductContainer = ({ products }) => {
   })
 
   return (
-    <section>
+    <section className='product-container'>
       {productCards}
     </section>
   )
