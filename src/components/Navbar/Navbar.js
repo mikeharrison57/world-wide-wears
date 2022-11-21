@@ -4,7 +4,7 @@ import Search from '../../assets/search-icon.png';
 import Cart from '../../assets/cart-icon.png';
 import './Navbar.css';
 
-const Navbar = ({ getSearchTerm, searchTerm }) => {
+const Navbar = ({ getSearchTerm }) => {
 	const [searchInput, setSearchInput] = useState('');
 
 	const submitSearchInput = () => {

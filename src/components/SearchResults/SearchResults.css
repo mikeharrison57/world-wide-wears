@@ -4,3 +4,7 @@
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
 }
+
+.results-message {
+  text-align: center;
+}
