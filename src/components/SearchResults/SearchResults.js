@@ -6,12 +6,14 @@ import './SearchResults.css';
 
 const SearchResults = ({ searchTerm }) => {
 	const [searchedProducts, setSearchedProducts] = useState([]);
+	const [pagination, setPagination] = useState({});
 	const [error, setError] = useState(false);
 
 	const getSearchedItems = async () => {
 		fetchSearchedItems(searchTerm)
 			.then((data) => {
 				setSearchedProducts([...searchedProducts, ...data.results]);
+				setPagination({ ...pagination, ...data.pagination });
 			})
 			.catch((error) => {
 				console.log(error);
@@ -27,13 +29,6 @@ const SearchResults = ({ searchTerm }) => {
 		return <Product key={Math.random()} product={product} />;
 	});
 
-	// const waitForResults = () => {
-	// 	const timer = setTimeout(() => {
-	// 		return <h1>No Results For That Search. Please try another!</h1>;
-	// 	}, 1000);
-	// 	return () => clearTimeout(timer);
-	// };
-
 	return (
 		<>
 			{error ? (
@@ -44,10 +39,19 @@ const SearchResults = ({ searchTerm }) => {
 						<h1>No Results For That Search. Please try another!</h1>
 					) : (
 						<>
+							{console.log(pagination)}
 							<h2 className='results-message'>
-								{searchedProducts.length} RESULTS FOR "{searchTerm}"
+								{pagination.totalResults} RESULTS FOR "{searchTerm}"
 							</h2>
+							<article className='pagination-navigation'>
+								<button className='nav-button'>Previous Page</button>
+								<button className='nav-button'>Next Page</button>
+							</article>
 							<section className='result-container'>{resultCards}</section>
+							<article className='pagination-navigation'>
+								<button className='nav-button'>Previous Page</button>
+								<button className='nav-button'>Next Page</button>
+							</article>
 						</>
 					)}
 				</section>
