@@ -11,3 +11,12 @@ export const fetchSaleItems = async () => {
 	const responseJson = await response.json();
 	return responseJson;
 };
+
+export const fetchSearchedItems = async (searchTerm, pageNum) => {
+	const response = await fetch(`${primaryUrl}${searchTerm}&resultsFormat=native&page=${pageNum || '1'}`);
+	if (!response.ok) {
+		throw new Error(response.statusText);
+	}
+	const responseJson = await response.json();
+	return responseJson;
+};
