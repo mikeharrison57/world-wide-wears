@@ -1,0 +1,25 @@
+.product-card {
+  margin: 0;
+  padding: 1rem;
+  text-align: left;
+}
+
+.prouct-name {
+  margin: 0;
+}
+
+.prices {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.previous-price {
+  color: lightslategray;
+  margin-left: .75rem;
+}
+
+.current-price {
+  color: #FF3131;
+}
