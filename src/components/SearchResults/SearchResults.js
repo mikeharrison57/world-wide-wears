@@ -6,12 +6,15 @@ import './SearchResults.css';
 
 const SearchResults = ({ searchTerm }) => {
 	const [searchedProducts, setSearchedProducts] = useState([]);
+	const [pagination, setPagination] = useState({});
+	let [pageNumber, setPageNumber] = useState(1);
 	const [error, setError] = useState(false);
 
 	const getSearchedItems = async () => {
-		fetchSearchedItems(searchTerm)
+		fetchSearchedItems(searchTerm, pageNumber)
 			.then((data) => {
-				setSearchedProducts([...searchedProducts, ...data.results]);
+				setSearchedProducts([...data.results]);
+				setPagination({ ...data.pagination });
 			})
 			.catch((error) => {
 				console.log(error);
@@ -21,39 +24,72 @@ const SearchResults = ({ searchTerm }) => {
 
 	useEffect(() => {
 		getSearchedItems();
-	}, [searchTerm]);
+		setSearchedProducts([]);
+	}, [searchTerm, pageNumber]);
 
-	const resultCards = searchedProducts.map((product) => {
+	const productCards = searchedProducts.map((product) => {
 		return <Product key={Math.random()} product={product} />;
 	});
 
-	// const waitForResults = () => {
-	// 	const timer = setTimeout(() => {
-	// 		return <h1>No Results For That Search. Please try another!</h1>;
-	// 	}, 1000);
-	// 	return () => clearTimeout(timer);
-	// };
+	const goToNextPage = () => {
+		setPageNumber((pageNumber += 1));
+	};
 
-	return (
-		<>
-			{error ? (
-				<Error />
-			) : (
-				<section>
-					{!searchedProducts.length ? (
-						<h1>No Results For That Search. Please try another!</h1>
-					) : (
-						<>
-							<h2 className='results-message'>
-								{searchedProducts.length} RESULTS FOR "{searchTerm}"
-							</h2>
-							<section className='result-container'>{resultCards}</section>
-						</>
-					)}
-				</section>
-			)}
-		</>
-	);
+	const goToPreviousPage = () => {
+		setPageNumber((pageNumber -= 1));
+	};
+
+	if (searchedProducts.length) {
+		return (
+			<>
+				{error ? (
+					<Error />
+				) : (
+					<section>
+						{!searchedProducts.length ? (
+							<h1>No Results For {searchTerm}. Please try another!</h1>
+						) : (
+							<>
+								{console.log({ pageNumber })}
+								<h2 className='results-message'>
+									Search results for "{searchTerm}"
+								</h2>
+								<article className='pagination-navigation'>
+									{pageNumber > 1 && (
+										<button
+											className='previous-button'
+											onClick={goToPreviousPage}>
+											Previous
+										</button>
+									)}
+									{pageNumber < pagination.totalPages && (
+										<button className='next-button' onClick={goToNextPage}>
+											Next
+										</button>
+									)}
+								</article>
+								<section className='result-container'>{productCards}</section>
+								<article className='pagination-navigation'>
+									{pageNumber > 1 && (
+										<button
+											className='previous-button'
+											onClick={goToPreviousPage}>
+											Previous
+										</button>
+									)}
+									{pageNumber < pagination.totalPages && (
+										<button className='next-button' onClick={goToNextPage}>
+											Next
+										</button>
+									)}
+								</article>
+							</>
+						)}
+					</section>
+				)}
+			</>
+		);
+	}
 };
 
 export default SearchResults;

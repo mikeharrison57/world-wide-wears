@@ -12,11 +12,12 @@ export const fetchSaleItems = async () => {
 
 export const fetchSearchedItems = async (searchTerm, pageNum) => {
 	const response = await fetch(
-		`${primaryUrl}${searchTerm}&resultsFormat=native&page=${pageNum || '1'}`
+		`${primaryUrl}${searchTerm}&resultsFormat=native&page=${pageNum}`
 	);
 	if (!response.ok) {
 		throw new Error(response.statusText);
 	}
+	console.log( { pageNum } )
 	const responseJson = await response.json();
 	return responseJson;
 };
