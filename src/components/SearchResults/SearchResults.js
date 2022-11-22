@@ -12,6 +12,9 @@ const SearchResults = ({ searchTerm }) => {
 	const [pageNumber, setPageNumber] = useState(1);
 	const [error, setError] = useState(false);
 
+	const nextButton = document.querySelector('.next-btn');
+	const previousButton = document.querySelector('.previous-btn');
+
 	const getSearchedItems = async () => {
 		fetchSearchedItems(searchTerm, pageNumber)
 			.then((data) => {
@@ -40,7 +43,16 @@ const SearchResults = ({ searchTerm }) => {
 
 	const changePage = ({ selected }) => {
 		setPageNumber(selected += 1);
+		addHidden();
 	};
+
+	const addHidden = () => {
+		if (pageNumber === 1) {
+			nextButton.classList.add('hidden')
+		} else if (pageNumber === pagination.totalPages) {
+			previousButton.classList.add('hidden')
+		}
+	}
 
 	if (searchedProducts.length) {
 		return (
@@ -53,21 +65,21 @@ const SearchResults = ({ searchTerm }) => {
 							<h1>No Results For {searchTerm}. Please try another!</h1>
 						) : (
 							<>
-								{console.log( {pageNumber} )}
+								{console.log({ pageNumber })}
 								<h2 className='results-message'>
 									Search results for "{searchTerm}"
 								</h2>
-									<ReactPaginate
-										previousLabel={'Previous'}
-										nextLabel={'Next'}
-										pageCount={pagination.totalPages}
-										onPageChange={changePage}
-										conatainerClassName={'paginationBttns'}
-										previousLinkClassName={'previousBttn'}
-										nextLinkClassName={'nextBttn'}
-										disabledClassName={'paginationDisabled'}
-										activeClassName={'paginationActive'}
-									/>
+								<ReactPaginate
+									previousLabel={'Previous'}
+									nextLabel={'Next'}
+									pageCount={pagination.totalPages}
+									onPageChange={changePage}
+									conatainerClassName={'paginationBttns'}
+									previousLinkClassName={'previous-btn'}
+									nextLinkClassName={'next-btn'}
+									disabledClassName={'paginationDisabled'}
+									activeClassName={'paginationActive'}
+								/>
 								<section className='result-container'>{productCards}</section>
 								<ReactPaginate
 									previousLabel={'Previous'}
@@ -75,8 +87,8 @@ const SearchResults = ({ searchTerm }) => {
 									pageCount={pagination.totalPages}
 									onPageChange={changePage}
 									conatainerClassName={'paginationBttns'}
-									previousLinkClassName={'previousBttn'}
-									nextLinkClassName={'nextBttn'}
+									previousLinkClassName={'previous-btn'}
+									nextLinkClassName={'next-btn'}
 									disabledClassName={'paginationDisabled'}
 									activeClassName={'paginationActive'}
 								/>
