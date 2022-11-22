@@ -46,11 +46,11 @@ const SearchResults = ({ searchTerm }) => {
 			<>
 				{!searchedProducts.length ? (
 					pagination.totalResults === 0 ? (
-						<h1>
+						<h1 style={{ textAlign: 'center' }}>
 							Sorry, no results for {searchTerm}. Please try another search.
 						</h1>
 					) : (
-						<h1>LOADING...</h1>
+						<h1 style={{ textAlign: 'center' }}>LOADING...</h1>
 					)
 				) : (
 					<section>
