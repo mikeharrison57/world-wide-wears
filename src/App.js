@@ -5,7 +5,7 @@ import { fetchSaleItems } from './utils/api-calls';
 
 // Components
 import Navbar from './components/Navbar/Navbar';
-// import Banner from './components/Banner/Banner';
+import Banner from './components/Banner/Banner';
 import Error from './components/Error/Error';
 import ProductContainer from './components/ProductContainer/ProductContainer';
 import SearchResults from './components/SearchResults/SearchResults';
@@ -41,9 +41,9 @@ const App = () => {
 			) : (
 				<main>
 					<Navbar getSearchTerm={getSearchTerm} />
-					{/* <Banner /> */}
 					{/* <Switch> */}
 						<Route exact path='/'>
+							<Banner />
 							<ProductContainer products={products} />
 						</Route>
 						<Route

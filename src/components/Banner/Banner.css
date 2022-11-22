@@ -1,8 +1,3 @@
-.banner {
-  display: flex;
-}
-
 .banner-image {
-  width: 33.4%;
-  height: 18%;
+  width: 100vw;
 }
