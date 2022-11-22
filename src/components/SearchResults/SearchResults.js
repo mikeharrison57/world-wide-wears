@@ -9,7 +9,7 @@ import './SearchResults.css';
 const SearchResults = ({ searchTerm }) => {
 	const [searchedProducts, setSearchedProducts] = useState([]);
 	const [pagination, setPagination] = useState({});
-	const [pageNumber, setPageNumber] = useState(1);
+	let [pageNumber, setPageNumber] = useState(1);
 	const [error, setError] = useState(false);
 
 	const getSearchedItems = async () => {
@@ -27,19 +27,14 @@ const SearchResults = ({ searchTerm }) => {
 	useEffect(() => {
 		getSearchedItems();
 		setSearchedProducts([]);
-	}, [searchTerm]);
-
-		useEffect(() => {
-			getSearchedItems();
-			setSearchedProducts([]);
-		}, [pageNumber]);
+	}, [searchTerm, pageNumber]);
 
 	const productCards = searchedProducts.map((product) => {
 		return <Product key={Math.random()} product={product} />;
 	});
 
-	const changePage = ({ selected }) => {
-		setPageNumber(selected += 1);
+	const goToNextPage = () => {
+		setPageNumber(pageNumber += 1);
 	};
 
 	if (searchedProducts.length) {
@@ -53,33 +48,23 @@ const SearchResults = ({ searchTerm }) => {
 							<h1>No Results For {searchTerm}. Please try another!</h1>
 						) : (
 							<>
-								{console.log( {pageNumber} )}
+								{console.log({ pageNumber })}
 								<h2 className='results-message'>
 									Search results for "{searchTerm}"
 								</h2>
-									<ReactPaginate
-										previousLabel={'Previous'}
-										nextLabel={'Next'}
-										pageCount={pagination.totalPages}
-										onPageChange={changePage}
-										conatainerClassName={'paginationBttns'}
-										previousLinkClassName={'previousBttn'}
-										nextLinkClassName={'nextBttn'}
-										disabledClassName={'paginationDisabled'}
-										activeClassName={'paginationActive'}
-									/>
+								<article className='pagination-navigation'>
+									<button className='nav-button'>Previous Page</button>
+									<button className='nav-button' onClick={goToNextPage}>
+										Next Page
+									</button>
+								</article>
 								<section className='result-container'>{productCards}</section>
-								<ReactPaginate
-									previousLabel={'Previous'}
-									nextLabel={'Next'}
-									pageCount={pagination.totalPages}
-									onPageChange={changePage}
-									conatainerClassName={'paginationBttns'}
-									previousLinkClassName={'previousBttn'}
-									nextLinkClassName={'nextBttn'}
-									disabledClassName={'paginationDisabled'}
-									activeClassName={'paginationActive'}
-								/>
+								<article className='pagination-navigation'>
+									<button className='nav-button'>Previous Page</button>
+									<button className='nav-button' onClick={goToNextPage}>
+										Next Page
+									</button>
+								</article>
 							</>
 						)}
 					</section>
