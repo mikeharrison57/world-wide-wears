@@ -56,26 +56,30 @@ const SearchResults = ({ searchTerm }) => {
 								</h2>
 								<article className='pagination-navigation'>
 									{pageNumber > 1 && (
-										<button className='nav-button' onClick={goToPreviousPage}>
-											Previous Page
+										<button
+											className='previous-button'
+											onClick={goToPreviousPage}>
+											Previous
 										</button>
 									)}
 									{pageNumber < pagination.totalPages && (
-										<button className='nav-button' onClick={goToNextPage}>
-											Next Page
+										<button className='next-button' onClick={goToNextPage}>
+											Next
 										</button>
 									)}
 								</article>
 								<section className='result-container'>{productCards}</section>
 								<article className='pagination-navigation'>
 									{pageNumber > 1 && (
-										<button className='nav-button' onClick={goToPreviousPage}>
-											Previous Page
+										<button
+											className='previous-button'
+											onClick={goToPreviousPage}>
+											Previous
 										</button>
 									)}
 									{pageNumber < pagination.totalPages && (
-										<button className='nav-button' onClick={goToNextPage}>
-											Next Page
+										<button className='next-button' onClick={goToNextPage}>
+											Next
 										</button>
 									)}
 								</article>
