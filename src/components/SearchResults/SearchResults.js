@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { fetchSearchedItems } from '../../utils/api-calls';
 import Product from '../Product/Product';
 import Error from '../Error/Error';
-import ReactPaginate from 'react-paginate';
 import './SearchResults.css';
 
 const SearchResults = ({ searchTerm }) => {
@@ -57,21 +55,29 @@ const SearchResults = ({ searchTerm }) => {
 									Search results for "{searchTerm}"
 								</h2>
 								<article className='pagination-navigation'>
-									<button className='nav-button' onClick={goToPreviousPage}>
-										Previous Page
-									</button>
-									<button className='nav-button' onClick={goToNextPage}>
-										Next Page
-									</button>
+									{pageNumber > 1 && (
+										<button className='nav-button' onClick={goToPreviousPage}>
+											Previous Page
+										</button>
+									)}
+									{pageNumber < pagination.totalPages && (
+										<button className='nav-button' onClick={goToNextPage}>
+											Next Page
+										</button>
+									)}
 								</article>
 								<section className='result-container'>{productCards}</section>
 								<article className='pagination-navigation'>
-									<button className='nav-button' onClick={goToPreviousPage}>
-										Previous Page
-									</button>
-									<button className='nav-button' onClick={goToNextPage}>
-										Next Page
-									</button>
+									{pageNumber > 1 && (
+										<button className='nav-button' onClick={goToPreviousPage}>
+											Previous Page
+										</button>
+									)}
+									{pageNumber < pagination.totalPages && (
+										<button className='nav-button' onClick={goToNextPage}>
+											Next Page
+										</button>
+									)}
 								</article>
 							</>
 						)}
