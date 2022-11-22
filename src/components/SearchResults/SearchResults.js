@@ -34,7 +34,11 @@ const SearchResults = ({ searchTerm }) => {
 	});
 
 	const goToNextPage = () => {
-		setPageNumber(pageNumber += 1);
+		setPageNumber((pageNumber += 1));
+	};
+
+	const goToPreviousPage = () => {
+		setPageNumber((pageNumber -= 1));
 	};
 
 	if (searchedProducts.length) {
@@ -53,14 +57,18 @@ const SearchResults = ({ searchTerm }) => {
 									Search results for "{searchTerm}"
 								</h2>
 								<article className='pagination-navigation'>
-									<button className='nav-button'>Previous Page</button>
+									<button className='nav-button' onClick={goToPreviousPage}>
+										Previous Page
+									</button>
 									<button className='nav-button' onClick={goToNextPage}>
 										Next Page
 									</button>
 								</article>
 								<section className='result-container'>{productCards}</section>
 								<article className='pagination-navigation'>
-									<button className='nav-button'>Previous Page</button>
+									<button className='nav-button' onClick={goToPreviousPage}>
+										Previous Page
+									</button>
 									<button className='nav-button' onClick={goToNextPage}>
 										Next Page
 									</button>
