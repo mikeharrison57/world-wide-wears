@@ -2,23 +2,36 @@
   text-align: center;
 }
 
-.pagination-navigation {
-  display: flex;
-  justify-content: space-around;
-  padding: 1rem;
-}
-
-.nav-button {
-  padding: 1rem;
-}
-
-.nav-button:hover {
-  background-color: aquamarine;
-}
-
 .result-container {
   padding: 1rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
+}
+
+ul {
+  width: 100%;
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px solid blue;
+  color: blue;
+  cursor: pointer;
+}
+
+a:hover {
+  color: white;
+  background-color: blue;
+}
+
+.paginationActive a {
+  color: white;
+  background-color: blue;
 }

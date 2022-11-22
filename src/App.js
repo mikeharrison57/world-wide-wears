@@ -55,12 +55,11 @@ const App = () => {
 						/>
 						<Route
 							exact
-							path='/:searchTerm/:pageNum'
+							path='/:searchTerm'
 							render={({ match }) => {
 								return (
 									<SearchResults
 										searchTerm={match.params.searchTerm}
-										pageNum={match.params.pageNum}
 									/>
 								);
 							}}
