@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import Logo from '../../assets/app-logo.png';
 import Search from '../../assets/search-icon.png';
 import Cart from '../../assets/cart-icon.png';
 import './Navbar.css';
@@ -12,16 +13,19 @@ const Navbar = () => {
 	const handleKeyDown = (e) => {
 		if (e.key === 'Enter') {
 			history.push('/' + searchInput);
+			setSearchInput('');
 		}
 	};
 
 	return (
 		<header className='navbar'>
 			<article className='heading-container'>
-				<h1 className='title'>WWW</h1>
-				<label>World Wide Wears</label>
-				<button className='about-us'>About Us</button>
+				<div className='app-title'>
+					<img alt='app-logo' src={Logo} className='logo' />
+					<label className='full-title'>World Wide Wears</label>
+				</div>
 			</article>
+				<button className='about-us'>About Us</button>
 			<article className='search-and-cart'>
 				<div className='search-container' tabIndex='0'>
 					<Link to={`/${searchInput}`}>
@@ -35,12 +39,12 @@ const Navbar = () => {
 						/>
 					</Link>
 					<Link to={`/${searchInput}`}>
-						<img alt='search-icon' src={Search} className='search-icon icon' />
+						<img alt='search-icon' src={Search} className='search-icon' />
 					</Link>
 				</div>
 				<div className='cart'>
 					<p>0</p>
-					<img alt='cart-icon' src={Cart} className='icon' />
+					<img alt='cart-icon' src={Cart} className='cart-icon' />
 				</div>
 			</article>
 		</header>
