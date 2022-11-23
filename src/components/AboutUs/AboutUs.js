@@ -1,8 +1,10 @@
+import './AboutUs.css';
+
 const AboutUs = () => {
 	return (
-		<section>
-			<h1>About Us</h1>
-			<article>
+		<section className='about-page'>
+			<h1 className='title'>About Us</h1>
+			<article className='body'>
 				<p>
 					Welcome to World Wide Wears (WWW)! At WWW we are dedicated to
 					providing the latest and greatest trendy clothing items the world wide
