@@ -29,7 +29,7 @@ const App = () => {
 					<AboutUs />
 				</Route>
 				<Route exact path='/cart'>
-					<Cart cartProducts={cartProducts} />
+					<Cart cartProducts={cartProducts} setCartProducts={setCartProducts} />
 				</Route>
 				<Route
 					exact
