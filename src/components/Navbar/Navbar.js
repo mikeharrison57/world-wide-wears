@@ -17,15 +17,19 @@ const Navbar = () => {
 
 	return (
 		<header className='navbar'>
-			<h1 className='title'>World Wide Wears</h1>
-			<button>About Us</button>
+			<article className='heading-container'>
+				<h1 className='title'>WWW</h1>
+				<label>World Wide Wears</label>
+				<button className='about-us'>About Us</button>
+			</article>
 			<article className='search-and-cart'>
-				<div className='search' tabIndex='0'>
+				<div className='search-container' tabIndex='0'>
 					<Link to={`/${searchInput}`}>
 						<input
 							type='text'
 							value={searchInput}
-							placeholder='Search'
+							placeholder={'Search'}
+							className='search-input'
 							onChange={(e) => setSearchInput(e.target.value)}
 							onKeyDown={handleKeyDown}
 						/>

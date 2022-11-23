@@ -5,17 +5,37 @@
   width: 100vw;
 }
 
+.heading-container {
+  padding: .75rem;
+  margin: .75rem;
+  display: flex;
+  flex-direction: column;
+}
+
 .title {
-  margin: .5rem
+  margin: auto;
+}
+
+.about-us {
+  padding: .5rem;
+  margin: .5rem;
 }
 
 .search-and-cart {
   display: flex;
   align-items: center;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.search-input {
+  height: 2rem;
+  border-radius: 10px;
+  border: auto;
 }
 
 .icon {
-  width: 2.5rem;
+  width: 2rem;
 }
 
 .icon:hover {
@@ -25,15 +45,16 @@
   opacity: .7;
 }
 
-.search {
-  padding: 1rem;
+.search-container {
+  padding: 1rem 1rem;
   display: flex;
   background-color: orange;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .search-icon {
-  border: solid black 1px;
+  border: solid black 3px;
+  border-radius: 10px;
 }
 
 .cart {
