@@ -4,25 +4,15 @@ import Search from '../../assets/search-icon.png';
 import Cart from '../../assets/cart-icon.png';
 import './Navbar.css';
 
-const Navbar = ({ getSearchTerm }) => {
-	let history = useHistory();
-
+const Navbar = () => {
 	const [searchInput, setSearchInput] = useState('');
 
-	const submitSearchInput = (e) => {
-		getSearchTerm(searchInput);
-		clearInput();
-	};
+	let history = useHistory();
 
 	const handleKeyDown = (e) => {
 		if (e.key === 'Enter') {
-			submitSearchInput();
 			history.push('/' + searchInput);
 		}
-	};
-
-	const clearInput = () => {
-		setSearchInput('');
 	};
 
 	return (
@@ -41,12 +31,7 @@ const Navbar = ({ getSearchTerm }) => {
 						/>
 					</Link>
 					<Link to={`/${searchInput}`}>
-						<img
-							alt='search-icon'
-							src={Search}
-							className='search-icon icon'
-							onClick={submitSearchInput}
-						/>
+						<img alt='search-icon' src={Search} className='search-icon icon' />
 					</Link>
 				</div>
 				<div className='cart'>

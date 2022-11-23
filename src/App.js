@@ -1,6 +1,6 @@
 // Functions and Hooks
 import { useState, useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { fetchSaleItems } from './utils/api-calls';
 
 // Components
@@ -13,7 +13,6 @@ import SearchResults from './components/SearchResults/SearchResults';
 const App = () => {
 	const [products, setProducts] = useState([]);
 	const [error, setError] = useState(false);
-	const [searchTerm, setSearchTerm] = useState('');
 
 	const getSaleItems = async () => {
 		fetchSaleItems()
@@ -26,10 +25,6 @@ const App = () => {
 			});
 	};
 
-	const getSearchTerm = (searchTerm) => {
-		setSearchTerm(searchTerm);
-	};
-
 	useEffect(() => {
 		getSaleItems();
 	}, []);
@@ -40,7 +35,7 @@ const App = () => {
 				<Error />
 			) : (
 				<main>
-					<Navbar getSearchTerm={getSearchTerm} />
+					<Navbar />
 					{/* <Switch> */}
 						<Route exact path='/'>
 							<Banner />
