@@ -30,8 +30,9 @@
 }
 
 .about-us {
-  padding: .5rem;
-  margin: .5rem;
+  padding: 1rem;
+  font-size: large;
+  color: #EDF2F4;
 }
 
 .search-and-cart {
@@ -48,7 +49,8 @@
 }
 
 .search-icon:hover,
-.cart:hover {
+.cart:hover,
+.app-title:hover {
   cursor: pointer;
   transform: scale(1.1);
   transition: all .5s;

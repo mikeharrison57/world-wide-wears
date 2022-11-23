@@ -20,12 +20,14 @@ const Navbar = () => {
 	return (
 		<header className='navbar'>
 			<article className='heading-container'>
-				<div className='app-title'>
-					<img alt='app-logo' src={Logo} className='logo' />
-					<label className='full-title'>World Wide Wears</label>
-				</div>
+				<Link to='/'>
+					<div className='app-title'>
+						<img alt='app-logo' src={Logo} className='logo' />
+						<label className='full-title'>World Wide Wears</label>
+					</div>
+				</Link>
 			</article>
-				<button className='about-us'>About Us</button>
+			<p className='about-us'>About Us</p>
 			<article className='search-and-cart'>
 				<div className='search-container' tabIndex='0'>
 					<Link to={`/${searchInput}`}>
