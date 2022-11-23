@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap');
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -5,6 +7,7 @@
   background: -webkit-linear-gradient(#8D99AE, #2B2D42);
   border-bottom: solid;
   width: 100vw;
+  font-family: 'Eagle Lake', cursive;
 }
 
 .heading-container {
@@ -22,6 +25,7 @@
   margin: .5rem;
   border-radius: 20px;
   border: solid black 2px;
+  font-size: large;
 }
 
 .logo{
@@ -32,6 +36,7 @@
 .about-us {
   padding: 1rem;
   font-size: large;
+  font-weight: bold;
   color: #EDF2F4;
 }
 
@@ -50,7 +55,8 @@
 
 .search-icon:hover,
 .cart:hover,
-.app-title:hover {
+.app-title:hover,
+.about-us:hover {
   cursor: pointer;
   transform: scale(1.1);
   transition: all .5s;

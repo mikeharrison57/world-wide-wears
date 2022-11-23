@@ -1,13 +1,16 @@
 .product-card {
   margin: 1rem;
   padding: 1rem;
-  border: solid black 2px;
+  border: solid #2B2D42 2px;
   width: 14.5rem;
   height: 33rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
+  background-color: #2B2D42;
+  color: #EDF2F4;
+  box-shadow: 10px 5px 5px #8D99AE;
 }
 
 .product-image {
@@ -24,10 +27,10 @@
 }
 
 .previous-price {
-  color: lightslategray;
+  color: #8D99AE;
   margin-left: .75rem;
 }
 
 .current-price {
-  color: #FF3131;
+  color: #EF233C;
 }

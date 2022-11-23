@@ -27,7 +27,7 @@ const Navbar = () => {
 					</div>
 				</Link>
 			</article>
-			<p className='about-us'>About Us</p>
+			<p className='about-us'>ABOUT US</p>
 			<article className='search-and-cart'>
 				<div className='search-container' tabIndex='0'>
 					<Link to={`/${searchInput}`}>
