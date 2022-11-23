@@ -46,10 +46,12 @@ const Navbar = ({ cartItemNum }) => {
 						<img alt='search-icon' src={Search} className='search-icon' />
 					</Link>
 				</div>
-				<div className='cart'>
-					<p>{cartItemNum}</p>
-					<img alt='cart-icon' src={Cart} className='cart-icon' />
-				</div>
+				<Link to='/cart'>
+					<div className='cart'>
+						<p>{cartItemNum}</p>
+						<img alt='cart-icon' src={Cart} className='cart-icon' />
+					</div>
+				</Link>
 			</article>
 		</header>
 	);

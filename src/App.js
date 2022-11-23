@@ -6,6 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Banner from './components/Banner/Banner';
 import AboutUs from './components/AboutUs/AboutUs';
+import Cart from './components/Cart/Cart';
 import ProductContainer from './components/ProductContainer/ProductContainer';
 import SearchResults from './components/SearchResults/SearchResults';
 
@@ -26,6 +27,9 @@ const App = () => {
 				</Route>
 				<Route exact path='/about-us'>
 					<AboutUs />
+				</Route>
+				<Route exact path='/cart'>
+					<Cart cartProducts={cartProducts} />
 				</Route>
 				<Route
 					exact
