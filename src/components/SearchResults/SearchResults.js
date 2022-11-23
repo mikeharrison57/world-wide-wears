@@ -53,32 +53,35 @@ const SearchResults = ({ searchTerm }) => {
 						<h1 style={{ textAlign: 'center' }}>LOADING...</h1>
 					)
 				) : (
-					<section>
+					<section className='search-result-page'>
+						<h2 className='results-message'>
+							{pagination.totalResults} Search results for "{searchTerm}"
+						</h2>
 						<article className='pagination-navigation'>
 							{pageNumber > 1 && (
 								<button className='previous-button' onClick={goToPreviousPage}>
-									Previous
+									{pagination.previousPage}
 								</button>
 							)}
 							{pageNumber < pagination.totalPages && (
 								<button className='next-button' onClick={goToNextPage}>
-									Next
+									{pagination.nextPage}
 								</button>
 							)}
 						</article>
 						<h2 className='results-message'>
-							Search results for "{searchTerm}"
+							{pagination.begin} - {pagination.end}
 						</h2>
 						<article className='result-container'>{productCards}</article>
 						<article className='pagination-navigation'>
 							{pageNumber > 1 && (
 								<button className='previous-button' onClick={goToPreviousPage}>
-									Previous
+									{pagination.previousPage}
 								</button>
 							)}
 							{pageNumber < pagination.totalPages && (
 								<button className='next-button' onClick={goToNextPage}>
-									Next
+									{pagination.nextPage}
 								</button>
 							)}
 						</article>
