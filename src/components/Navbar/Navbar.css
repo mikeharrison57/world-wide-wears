@@ -90,3 +90,9 @@
 .cart-icon {
   width: 3rem;
 }
+
+@media (max-width: 480px) {
+  .navbar {
+    width: 190vw;
+  }
+}

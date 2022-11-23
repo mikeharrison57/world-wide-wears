@@ -1,11 +1,12 @@
 // Functions and Hooks
 import { useState, useEffect } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { fetchSaleItems } from './utils/api-calls';
 
 // Components
 import Navbar from './components/Navbar/Navbar';
 import Banner from './components/Banner/Banner';
+import AboutUs from './components/AboutUs/AboutUs';
 import Error from './components/Error/Error';
 import ProductContainer from './components/ProductContainer/ProductContainer';
 import SearchResults from './components/SearchResults/SearchResults';
@@ -36,10 +37,13 @@ const App = () => {
 			) : (
 				<main>
 					<Navbar />
-					{/* <Switch> */}
+					<Switch>
 						<Route exact path='/'>
 							<Banner />
 							<ProductContainer products={products} />
+						</Route>
+						<Route exact path='/about-us'>
+							<AboutUs />
 						</Route>
 						<Route
 							exact
@@ -48,7 +52,7 @@ const App = () => {
 								return <SearchResults searchTerm={match.params.searchTerm} />;
 							}}
 						/>
-					{/* </Switch> */}
+					</Switch>
 				</main>
 			)}
 		</>
