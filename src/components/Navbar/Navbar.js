@@ -5,7 +5,7 @@ import Search from '../../assets/search-icon.png';
 import Cart from '../../assets/cart-icon.png';
 import './Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({ cartItemNum }) => {
 	const [searchInput, setSearchInput] = useState('');
 
 	let history = useHistory();
@@ -47,7 +47,7 @@ const Navbar = () => {
 					</Link>
 				</div>
 				<div className='cart'>
-					<p>0</p>
+					<p>{cartItemNum}</p>
 					<img alt='cart-icon' src={Cart} className='cart-icon' />
 				</div>
 			</article>

@@ -27,7 +27,7 @@ const ProductContainer = ({ getCartProducts }) => {
 		return (
 			<Product
 				getCartProducts={getCartProducts}
-				key={product.id}
+				key={Math.random()}
 				product={product}
 			/>
 		);

@@ -18,8 +18,7 @@ const App = () => {
 
 	return (
 		<main>
-			{console.log(cartProducts)}
-			<Navbar />
+			<Navbar cartItemNum={cartProducts.length} />
 			<Switch>
 				<Route exact path='/'>
 					<Banner />
