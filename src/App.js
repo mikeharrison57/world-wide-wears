@@ -12,12 +12,13 @@ import SearchResults from './components/SearchResults/SearchResults';
 const App = () => {
 	const [cartProducts, setCartProducts] = useState([]);
 
-	const getCartProducts = (product) => {
-		setCartProducts([...cartProducts, { ...product }]);
+	const getCartProducts = (selectedProduct) => {
+		setCartProducts([...cartProducts, { ...selectedProduct }]);
 	};
 
 	return (
 		<main>
+			{console.log(cartProducts)}
 			<Navbar />
 			<Switch>
 				<Route exact path='/'>

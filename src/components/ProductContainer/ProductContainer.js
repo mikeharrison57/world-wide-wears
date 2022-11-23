@@ -4,7 +4,7 @@ import Product from '../Product/Product';
 import Error from '../Error/Error';
 import './ProductContainer.css';
 
-const ProductContainer = () => {
+const ProductContainer = ({ getCartProducts }) => {
 	const [products, setProducts] = useState([]);
 	const [error, setError] = useState(false);
 
@@ -24,7 +24,13 @@ const ProductContainer = () => {
 	}, []);
 
 	const productCards = products.map((product) => {
-		return <Product key={product.id} product={product} />;
+		return (
+			<Product
+				getCartProducts={getCartProducts}
+				key={product.id}
+				product={product}
+			/>
+		);
 	});
 
 	return (
