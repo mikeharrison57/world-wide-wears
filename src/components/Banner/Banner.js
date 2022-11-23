@@ -1,15 +1,13 @@
-import BlackFriday from '../../assets/black-friday.jpg';
-import Clothes from '../../assets/clothes.jpg';
-import './Banner.css'
+import BannerImg from '../../assets/banner-image.png';
+import './Banner.css';
 
 const Banner = () => {
 	return (
-		<section className='banner'>
-			<img alt='black-friday' src={BlackFriday} className='banner-image' />
-			<img alt='clothes' src={Clothes} className='banner-image' />
-			<img alt='black-friday' src={BlackFriday} className='banner-image' />
+		<section className='banner-container'>
+			<img alt='banner-img' src={BannerImg} className='banner-image' />;
+			<h2>Check Out Our Black Friday Deals Below</h2>
 		</section>
-	);
+	)
 };
 
 export default Banner;

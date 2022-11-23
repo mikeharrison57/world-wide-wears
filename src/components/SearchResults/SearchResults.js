@@ -7,8 +7,8 @@ import './SearchResults.css';
 const SearchResults = ({ searchTerm }) => {
 	const [searchedProducts, setSearchedProducts] = useState([]);
 	const [pagination, setPagination] = useState({});
-	let [pageNumber, setPageNumber] = useState(1);
 	const [error, setError] = useState(false);
+	let [pageNumber, setPageNumber] = useState(1);
 
 	const getSearchedItems = async () => {
 		fetchSearchedItems(searchTerm, pageNumber)
@@ -27,10 +27,6 @@ const SearchResults = ({ searchTerm }) => {
 		setSearchedProducts([]);
 	}, [searchTerm, pageNumber]);
 
-	const productCards = searchedProducts.map((product) => {
-		return <Product key={Math.random()} product={product} />;
-	});
-
 	const goToNextPage = () => {
 		setPageNumber((pageNumber += 1));
 	};
@@ -39,52 +35,56 @@ const SearchResults = ({ searchTerm }) => {
 		setPageNumber((pageNumber -= 1));
 	};
 
-	if (searchedProducts.length) {
+	const productCards = searchedProducts.map((product) => {
+		return <Product key={Math.random()} product={product} />;
+	});
+
+	if (error) {
+		return <Error />;
+	} else {
 		return (
 			<>
-				{error ? (
-					<Error />
+				{!searchedProducts.length ? (
+					pagination.totalResults === 0 ? (
+						<h1 style={{ textAlign: 'center' }}>
+							Sorry, no results for {searchTerm}. Please try another search.
+						</h1>
+					) : (
+						<h1 style={{ textAlign: 'center' }}>LOADING...</h1>
+					)
 				) : (
-					<section>
-						{!searchedProducts.length ? (
-							<h1>No Results For {searchTerm}. Please try another!</h1>
-						) : (
-							<>
-								{console.log({ pageNumber })}
-								<h2 className='results-message'>
-									Search results for "{searchTerm}"
-								</h2>
-								<article className='pagination-navigation'>
-									{pageNumber > 1 && (
-										<button
-											className='previous-button'
-											onClick={goToPreviousPage}>
-											Previous
-										</button>
-									)}
-									{pageNumber < pagination.totalPages && (
-										<button className='next-button' onClick={goToNextPage}>
-											Next
-										</button>
-									)}
-								</article>
-								<section className='result-container'>{productCards}</section>
-								<article className='pagination-navigation'>
-									{pageNumber > 1 && (
-										<button
-											className='previous-button'
-											onClick={goToPreviousPage}>
-											Previous
-										</button>
-									)}
-									{pageNumber < pagination.totalPages && (
-										<button className='next-button' onClick={goToNextPage}>
-											Next
-										</button>
-									)}
-								</article>
-							</>
-						)}
+					<section className='search-result-page'>
+						<h2 className='results-message'>
+							{pagination.totalResults} Search results for "{searchTerm}"
+						</h2>
+						<article className='pagination-navigation'>
+							{pageNumber > 1 && (
+								<button className='previous-button' onClick={goToPreviousPage}>
+									{pagination.previousPage}
+								</button>
+							)}
+							{pageNumber < pagination.totalPages && (
+								<button className='next-button' onClick={goToNextPage}>
+									{pagination.nextPage}
+								</button>
+							)}
+						</article>
+						<h2 className='results-message'>
+							{pagination.begin} - {pagination.end}
+						</h2>
+						<article className='result-container'>{productCards}</article>
+						<article className='pagination-navigation'>
+							{pageNumber > 1 && (
+								<button className='previous-button' onClick={goToPreviousPage}>
+									{pagination.previousPage}
+								</button>
+							)}
+							{pageNumber < pagination.totalPages && (
+								<button className='next-button' onClick={goToNextPage}>
+									{pagination.nextPage}
+								</button>
+							)}
+						</article>
 					</section>
 				)}
 			</>
