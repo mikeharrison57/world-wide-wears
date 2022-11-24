@@ -93,6 +93,6 @@
 
 @media (max-width: 480px) {
   .navbar {
-    width: 190vw;
+    width: 50rem;
   }
 }

@@ -15,6 +15,6 @@ code {
 
 @media (max-width: 480px) {
   body {
-    width: 190vw;
+    width: 50rem;
   }
 }
