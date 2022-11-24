@@ -1,70 +1,107 @@
-# Getting Started with Create React App
+<img width="212" alt="Screen Shot 2022-11-24 at 12 15 57 PM" src="https://user-images.githubusercontent.com/95496577/203852862-c1d27a46-5843-45d1-8d6e-a75b1d922675.png"> 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+- [Table of Contents](#table-of-contents)
+- [Abstract](#abstract)
+- [Deployed Link](#deployed-link)
+- [Illustrations](#illustrations)
+- [Application Wireframes](#application-wireframes)
+  - [Main Page](#main-page)
+  - [Search Results](#search-results)
+- [Technology Stack](#technology-stack)
+- [User Stories](#user-stories)
+- [Context and Features](#context-and-features)
+- [Future Features](#future-features)
+- [Application Set-Up](#application-set-up)
+- [Contributor LinkedIn](#contributor-linkedin)
+- [Contributor GitHubs](#contributor-githubs)
+- [Project Specs](#project-specs)
 
-In the project directory, you can run:
+## Abstract
 
-### `npm start`
+Welcome to World Wide Wears (WWW)! At WWW we are dedicated to providing the latest and greatest trendy clothing items the world wide web has to offer. Please check out our Black Friday Deals available right now, and dare to explore our inventory of thousands of products. Check out our amazing collection of "wears" today!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Deployed Link
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Check out our application [HERE!](https://world-wide-wears.vercel.app/) 
 
-### `npm test`
+## Illustrations
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Application Wireframes
 
-### `npm run build`
+### Main Page
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Main page](https://user-images.githubusercontent.com/95496577/203845921-c943cf27-330c-4638-8b15-ba2fa6eac4ae.png) 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Search Results
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Search Results](https://user-images.githubusercontent.com/95496577/203845964-c1867b1c-ef13-4fde-9f2a-942de7c32d14.png) 
 
-### `npm run eject`
+## Technology Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- CSS3 
+- Cypress.io
+- JSX
+- React.js
+- React Hooks
+- React Router
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## User Stories
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- As a user, I should be able to use a search bar and search button to search for products by clicking the search button or pressing enter on the keyboard. 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- As a user, I should see different product results based on search parameters.
 
-## Learn More
+- As a user, I should be able to navigate from page to page to see additional product results. 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- As a user, I should not see the previous button on the first page and the next button on the final page.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- As a user, I should be able to add items to my cart.
 
-### Code Splitting
+- As a user, I should be able to remove items from my cart.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- As a user, I should be able to confirm my purchase for the items in my cart.
 
-### Analyzing the Bundle Size
+## Context and Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- WWW allows users to explore thousands of products from around the world. Upon page load, the user is met with a home page advertising some of our hottest Black Friday sales. The navigation bar contains an application logo (which conveniently links back to the home page), a link to the ABOUT US page, a search box, and a link to the user’s cart. The user is able to type any term into the search box and results will return based on the term. If there are no results for the term, a message will display informing the user. After receiving search results, the user is able to navigate between pages of results using forward and back buttons that display page locations. Every item on the page has a `Add To Cart` button. When the user clicks this button, it will be added to their cart. On the Cart page the user is able to see the total for the items they added to the cart, remove items from the cart, and confirm item purchases.  
+ 
+- The application was designed from the ground up with the integration of Searchspring’s Search API in mind.  The data organization, pagination features, and search term parameters make the experience of searching for clothing items on WWW fast, efficient, and easy to use. Our founder Michael Harrison is very thankful for the eCommerce optimization tools provided by Searchspring, without which WWW would not be possible. 
 
-### Making a Progressive Web App
+## Future Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Some future features I’d like to add to this application are:
 
-### Advanced Configuration
+- An individual product page with additional product details (description, colors available, sizes, etc.).
+- Being able to retain cart items upon refresh with custom API or local storage.
+- More extensive pagination features, including visible page numbers. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Application Set-Up
 
-### Deployment
+1. Fork repository on GitHub.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+2. `Git clone` the repository to your local machine.
 
-### `npm run build` fails to minify
+3. `Cd` into the directory.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4. Run `npm install` in your terminal to install project dependencies.
+
+5. Run `npm start` in the terminal to see the application. 
+
+6. Run `npm run cypress` in the terminal  to run cypress tests. 
+
+7. When finished with the application and or testing, type `Control + C` in the terminal to stop running the application. 
+
+## Contributor LinkedIn
+
+- [Michael Harrison: LinkedIn](https://www.linkedin.com/in/michael-j-harrison57/)
+
+## Contributor GitHubs
+
+- [Michael Harrison: GitHub](https://github.com/mikeharrison57) 
+
+## Project Specs
+
+- The specs for this application can be found 
+[here](https://docs.google.com/document/d/1PFjEI30K8DH3lWU4vQEHFYesInhP1Gdpq9KdjySkgbU/edit?usp=sharing)

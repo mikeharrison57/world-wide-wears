@@ -19,17 +19,21 @@
 
 .app-title {
   display: flex;
+  flex-direction: column;
   align-items: center;
   background-color: #EDF2F4;
   padding: .5rem;
   margin: .5rem;
   border-radius: 20px;
-  border: solid black 2px;
   font-size: large;
+  color: #D90429 ;
 }
 
-.logo{
+.logo {
   margin: auto;
+  padding: .25rem;
+  border-radius: 100%;
+  background-color: white ;
   width: 6rem;
 }
 
