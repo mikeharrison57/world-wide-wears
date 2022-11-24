@@ -19,6 +19,13 @@
   color: #EDF2F4;
 }
 
+.previous-button:hover,
+.next-button:hover {
+  cursor: pointer;
+  transition: all .5s;
+  opacity: .8;
+}
+
 .previous-button {
   clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
 }

@@ -1,11 +1,6 @@
-import './Product.css';
+import './CartProduct.css';
 
-const Product = ({ product, getCartProducts }) => {
-
-	const addToCart = () => {
-		alert(`${product.name} added to cart!`);
-		getCartProducts(product);
-	};
+const CartProduct = ({ product }) => {
 
 	return (
 		<article className='product-card'>
@@ -21,9 +16,9 @@ const Product = ({ product, getCartProducts }) => {
 				{product.msrp && <del className='previous-price'>${product.msrp}</del>}
 			</div>
 			<h3 className='product-name'>{product.name}</h3>
-			<button onClick={addToCart}>Add To Cart</button>
+			{/* <button onClick={addToCart}>Add To Cart</button> */}
 		</article>
 	);
 };
 
-export default Product;
+export default CartProduct;

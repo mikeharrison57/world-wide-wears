@@ -4,7 +4,7 @@ import Product from '../Product/Product';
 import Error from '../Error/Error';
 import './SearchResults.css';
 
-const SearchResults = ({ searchTerm, getCartProducts }) => {
+const SearchResults = ({ searchTerm, cartProducts, getCartProducts }) => {
 	const [searchedProducts, setSearchedProducts] = useState([]);
 	const [pagination, setPagination] = useState({});
 	const [error, setError] = useState(false);

@@ -1,9 +1,15 @@
-import Product from '../Product/Product';
+import CartProduct from '../CartProduct/CartProduct';
 import './Cart.css';
 
 const Cart = ({ cartProducts, setCartProducts }) => {
 	const cartCards = cartProducts.map((product) => {
-		return <Product key={Math.random()} product={product} />;
+		return (
+			<CartProduct
+				key={Math.random()}
+				product={product}
+				cartProducts={cartProducts}
+			/>
+		);
 	});
 
 	const totalCost = cartProducts.reduce((zero, product) => {
@@ -19,8 +25,10 @@ const Cart = ({ cartProducts, setCartProducts }) => {
 		<>
 			{cartCards.length ? (
 				<section className='cart-items'>
-					<h2>Total: ${totalCost}.00</h2>
-					<button onClick={confirmPurchase}>Confirm Purchase</button>
+					<h2 className='total'>Total: ${totalCost}.00</h2>
+					<button className='confirm-purchase' onClick={confirmPurchase}>
+						Confirm Purchase
+					</button>
 					{cartCards}
 				</section>
 			) : (

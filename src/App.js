@@ -17,6 +17,14 @@ const App = () => {
 		setCartProducts([...cartProducts, { ...selectedProduct }]);
 	};
 
+	const removeCartProduct = (id) => {
+		const remainingCartItems = cartProducts.filter((product) => {
+			console.log(remainingCartItems);
+			return product.id !== id;
+		});
+		setCartProducts([...remainingCartItems]);
+	};
+
 	return (
 		<main>
 			<Navbar cartItemNum={cartProducts.length} />
