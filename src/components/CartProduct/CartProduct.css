@@ -1,0 +1,40 @@
+.cart-product-card {
+  margin: 1rem;
+  padding: 1rem;
+  border: solid #2B2D42 2px;
+  width: 30rem;
+  height: 21rem;
+  display: flex;
+  border-radius: 10px;
+  background-color: #2B2D42;
+  color: #EDF2F4;
+  box-shadow: 10px 5px 5px #8D99AE;
+}
+
+.product-image {
+  width: 15rem;
+  height: 21rem;
+  border-radius: 10px;
+}
+
+.prices-and-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.product-name {
+  text-align: center;
+  padding-left: 1rem;
+}
+
+.previous-price {
+  color: #8D99AE;
+  margin-left: .75rem;
+}
+
+.current-price {
+  color: #EF233C;
+}
