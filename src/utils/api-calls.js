@@ -1,5 +1,5 @@
 const primaryUrl =
-	'http://api.searchspring.net/api/search/search.json?siteId=scmq7n&q=';
+	'https://api.searchspring.net/api/search/search.json?siteId=scmq7n&q=';
 
 export const fetchSaleItems = async () => {
 	const response = await fetch(`${primaryUrl}sale&resultsFormat=native&page=2`);
