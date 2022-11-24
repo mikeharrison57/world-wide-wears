@@ -1,13 +1,14 @@
 import CartProduct from '../CartProduct/CartProduct';
 import './Cart.css';
 
-const Cart = ({ cartProducts, setCartProducts }) => {
+const Cart = ({ cartProducts, setCartProducts, removeCartProduct }) => {
 	const cartCards = cartProducts.map((product) => {
 		return (
 			<CartProduct
 				key={Math.random()}
 				product={product}
 				cartProducts={cartProducts}
+				removeCartProduct={removeCartProduct}
 			/>
 		);
 	});

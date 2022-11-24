@@ -1,6 +1,11 @@
 import './CartProduct.css';
 
-const CartProduct = ({ product }) => {
+const CartProduct = ({ product, removeCartProduct }) => {
+	const confirmCartRemoval = () => {
+		alert(`${product.name} removed from cart!`)
+		removeCartProduct(product.id);
+	};
+
 	return (
 		<article className='cart-product-card'>
 			{product.thumbnailImageUrl && (
@@ -18,8 +23,8 @@ const CartProduct = ({ product }) => {
 						<del className='previous-price'>${product.msrp}</del>
 					)}
 				</div>
+				<button onClick={confirmCartRemoval}>Remove From Cart</button>
 			</div>
-			{/* <button onClick={addToCart}>Add To Cart</button> */}
 		</article>
 	);
 };

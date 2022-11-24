@@ -19,7 +19,6 @@ const App = () => {
 
 	const removeCartProduct = (id) => {
 		const remainingCartItems = cartProducts.filter((product) => {
-			console.log(remainingCartItems);
 			return product.id !== id;
 		});
 		setCartProducts([...remainingCartItems]);
@@ -37,7 +36,11 @@ const App = () => {
 					<AboutUs />
 				</Route>
 				<Route exact path='/cart'>
-					<Cart cartProducts={cartProducts} setCartProducts={setCartProducts} />
+					<Cart
+						cartProducts={cartProducts}
+						setCartProducts={setCartProducts}
+						removeCartProduct={removeCartProduct}
+					/>
 				</Route>
 				<Route
 					exact
