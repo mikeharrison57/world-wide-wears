@@ -1,0 +1,29 @@
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  border: solid black 2px;
+  border-radius: 15px;
+  margin: 1.5rem;
+}
+
+.total {
+  font-size: xx-large;
+}
+
+.confirm-purchase {
+  padding: 1rem;
+  width: 14.5rem;
+  border: solid black 2px;
+  border-radius: 20px;
+  font-size: x-large;
+  background-color: #2B2D42;
+  color: #EDF2F4;
+}
+
+.confirm-purchase:hover {
+  background-color: #D90429;
+  color: #EDF2F4;
+  cursor: pointer;
+}

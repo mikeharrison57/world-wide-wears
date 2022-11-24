@@ -4,7 +4,7 @@ import Product from '../Product/Product';
 import Error from '../Error/Error';
 import './SearchResults.css';
 
-const SearchResults = ({ searchTerm }) => {
+const SearchResults = ({ searchTerm, cartProducts, getCartProducts }) => {
 	const [searchedProducts, setSearchedProducts] = useState([]);
 	const [pagination, setPagination] = useState({});
 	const [error, setError] = useState(false);
@@ -36,7 +36,13 @@ const SearchResults = ({ searchTerm }) => {
 	};
 
 	const productCards = searchedProducts.map((product) => {
-		return <Product key={Math.random()} product={product} />;
+		return (
+			<Product
+				key={Math.random()}
+				getCartProducts={getCartProducts}
+				product={product}
+			/>
+		);
 	});
 
 	if (error) {
