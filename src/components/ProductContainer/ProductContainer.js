@@ -1,8 +1,12 @@
+import './ProductContainer.css';
+
+// Hooks and Functions
 import { useState, useEffect } from 'react';
 import { fetchSaleItems } from '../../utils/api-calls';
+
+// Components
 import Product from '../Product/Product';
 import Error from '../Error/Error';
-import './ProductContainer.css';
 
 const ProductContainer = ({ getCartProducts }) => {
 	const [products, setProducts] = useState([]);

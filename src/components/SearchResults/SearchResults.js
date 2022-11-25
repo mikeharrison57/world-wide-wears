@@ -1,8 +1,12 @@
+import './SearchResults.css';
+
+// Hooks and Functions
 import { useState, useEffect } from 'react';
 import { fetchSearchedItems } from '../../utils/api-calls';
+
+// Components
 import Product from '../Product/Product';
 import Error from '../Error/Error';
-import './SearchResults.css';
 
 const SearchResults = ({ searchTerm, cartProducts, getCartProducts }) => {
 	const [searchedProducts, setSearchedProducts] = useState([]);

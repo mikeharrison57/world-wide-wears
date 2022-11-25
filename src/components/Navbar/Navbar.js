@@ -1,5 +1,8 @@
+// Hooks and React Router
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+
+// Assets
 import Logo from '../../assets/app-logo.png';
 import Search from '../../assets/search-icon.png';
 import Cart from '../../assets/cart-icon.png';

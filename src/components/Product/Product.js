@@ -1,7 +1,6 @@
 import './Product.css';
 
 const Product = ({ product, getCartProducts }) => {
-
 	const addToCart = () => {
 		alert(`${product.name} added to cart!`);
 		getCartProducts(product);
