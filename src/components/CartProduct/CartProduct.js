@@ -23,7 +23,7 @@ const CartProduct = ({ product, removeCartProduct }) => {
 						<del className='previous-price'>${product.msrp}</del>
 					)}
 				</div>
-				<button onClick={confirmCartRemoval}>Remove From Cart</button>
+				<button className='remove-from-cart' onClick={confirmCartRemoval}>Remove From Cart</button>
 			</div>
 		</article>
 	);
