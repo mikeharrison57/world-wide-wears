@@ -8,7 +8,7 @@ import { fetchSearchedItems } from '../../utils/api-calls';
 import Product from '../Product/Product';
 import Error from '../Error/Error';
 
-const SearchResults = ({ searchTerm, cartProducts, getCartProducts }) => {
+const SearchResults = ({ searchTerm, getCartProducts }) => {
 	const [searchedProducts, setSearchedProducts] = useState([]);
 	const [pagination, setPagination] = useState({});
 	const [error, setError] = useState(false);
@@ -56,9 +56,11 @@ const SearchResults = ({ searchTerm, cartProducts, getCartProducts }) => {
 			<>
 				{!searchedProducts.length ? (
 					pagination.totalResults === 0 ? (
-						<h1 style={{ textAlign: 'center' }}>
-							Sorry, no results for {searchTerm}. Please try another search.
-						</h1>
+						<div className='no-results'>
+							<h1 style={{ textAlign: 'center' }}>
+								Sorry, no results for "{searchTerm}". Please try another search.
+							</h1>
+						</div>
 					) : (
 						<h1 style={{ textAlign: 'center' }}>LOADING...</h1>
 					)
