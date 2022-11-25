@@ -27,3 +27,9 @@
   color: #EDF2F4;
   cursor: pointer;
 }
+
+@media (max-width: 480px) {
+  .cart-items {
+    width: 80vw;
+  }
+}

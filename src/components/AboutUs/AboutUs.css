@@ -20,3 +20,9 @@
   color: #EDF2F4;
   box-shadow: 10px 5px 5px #8D99AE;
 }
+
+@media (max-width: 480px) {
+  .about-page {
+    width: 100vw;
+  }
+}

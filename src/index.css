@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
+html, 
 body {
   margin: 0;
   font-family: 'Lato', sans-serif;
@@ -14,7 +15,8 @@ code {
 }
 
 @media (max-width: 480px) {
-  body {
-    width: 50rem;
+  html {
+    width: 100vw;
+    display: flex;
   }
 }

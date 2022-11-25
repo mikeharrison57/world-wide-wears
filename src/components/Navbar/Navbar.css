@@ -95,6 +95,24 @@
 
 @media (max-width: 480px) {
   .navbar {
-    width: 50rem;
+    width: 0;
+  }
+
+  .heading-container,
+  .about-us,
+  .search-and-cart {
+    margin: auto;
+  }
+
+  .search-and-cart {
+    flex-direction: column;
+  }
+
+    .search-input {
+      width: 3rem;
+    }
+
+  .full-title {
+    display: none;
   }
 }
