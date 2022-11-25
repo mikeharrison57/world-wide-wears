@@ -1,5 +1,8 @@
+// Hooks and React Router
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+
+// Assets
 import Logo from '../../assets/app-logo.png';
 import Search from '../../assets/search-icon.png';
 import Cart from '../../assets/cart-icon.png';
@@ -20,14 +23,14 @@ const Navbar = ({ cartItemNum }) => {
 	return (
 		<header className='navbar'>
 			<article className='heading-container'>
-				<Link to='/'>
+				<Link to='/' style={{ textDecoration: 'none' }}>
 					<div className='app-title'>
 						<img alt='app-logo' src={Logo} className='logo' />
 						<label className='full-title'>World Wide Wears</label>
 					</div>
 				</Link>
 			</article>
-			<Link to='/about-us'>
+			<Link to='/about-us' style={{ textDecoration: 'none' }}>
 				<p className='about-us'>ABOUT US</p>
 			</Link>
 			<article className='search-and-cart'>
@@ -46,7 +49,7 @@ const Navbar = ({ cartItemNum }) => {
 						<img alt='search-icon' src={Search} className='search-icon' />
 					</Link>
 				</div>
-				<Link to='/cart'>
+				<Link to='/cart' style={{ textDecoration: 'none' }}>
 					<div className='cart'>
 						<p>{cartItemNum}</p>
 						<img alt='cart-icon' src={Cart} className='cart-icon' />

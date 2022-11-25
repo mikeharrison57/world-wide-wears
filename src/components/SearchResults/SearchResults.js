@@ -1,10 +1,15 @@
-import { useState, useEffect } from 'react';
-import { fetchSearchedItems } from '../../utils/api-calls';
-import Product from '../Product/Product';
-import Error from '../Error/Error';
 import './SearchResults.css';
 
-const SearchResults = ({ searchTerm, cartProducts, getCartProducts }) => {
+// Hooks and Functions
+import { useState, useEffect } from 'react';
+import { fetchSearchedItems } from '../../utils/api-calls';
+
+// Components
+import Product from '../Product/Product';
+import Loading from '../Loading/Loading';
+import Error from '../Error/Error';
+
+const SearchResults = ({ searchTerm, getCartProducts }) => {
 	const [searchedProducts, setSearchedProducts] = useState([]);
 	const [pagination, setPagination] = useState({});
 	const [error, setError] = useState(false);
@@ -52,11 +57,13 @@ const SearchResults = ({ searchTerm, cartProducts, getCartProducts }) => {
 			<>
 				{!searchedProducts.length ? (
 					pagination.totalResults === 0 ? (
-						<h1 style={{ textAlign: 'center' }}>
-							Sorry, no results for {searchTerm}. Please try another search.
-						</h1>
+						<div className='no-results'>
+							<h1 style={{ textAlign: 'center' }}>
+								Sorry, no results for "{searchTerm}". Please try another search.
+							</h1>
+						</div>
 					) : (
-						<h1 style={{ textAlign: 'center' }}>LOADING...</h1>
+						<Loading />
 					)
 				) : (
 					<section className='search-result-page'>

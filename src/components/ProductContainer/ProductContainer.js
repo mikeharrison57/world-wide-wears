@@ -1,8 +1,13 @@
+import './ProductContainer.css';
+
+// Hooks and Functions
 import { useState, useEffect } from 'react';
 import { fetchSaleItems } from '../../utils/api-calls';
+
+// Components
 import Product from '../Product/Product';
+import Loading from '../Loading/Loading';
 import Error from '../Error/Error';
-import './ProductContainer.css';
 
 const ProductContainer = ({ getCartProducts }) => {
 	const [products, setProducts] = useState([]);
@@ -33,15 +38,19 @@ const ProductContainer = ({ getCartProducts }) => {
 		);
 	});
 
-	return (
-		<>
-			{error ? (
-				<Error />
-			) : (
-				<section className='product-container'>{productCards}</section>
-			)}
-		</>
-	);
+	if (error) {
+		return <Error />;
+	} else {
+		return (
+			<>
+				{!products.length ? (
+					<Loading />
+				) : (
+					<section className='product-container'>{productCards}</section>
+				)}
+			</>
+		);
+	}
 };
 
 export default ProductContainer;

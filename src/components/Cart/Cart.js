@@ -1,5 +1,7 @@
-import CartProduct from '../CartProduct/CartProduct';
 import './Cart.css';
+
+// Components
+import CartProduct from '../CartProduct/CartProduct';
 
 const Cart = ({ cartProducts, setCartProducts, removeCartProduct }) => {
 	const cartCards = cartProducts.map((product) => {

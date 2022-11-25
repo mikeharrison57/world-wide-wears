@@ -5,7 +5,7 @@
   justify-content: space-between;
   align-items: center;
   background: -webkit-linear-gradient(#8D99AE, #2B2D42);
-  border-bottom: solid;
+  border-bottom: solid black;
   width: 100vw;
   font-family: 'Eagle Lake', cursive;
 }
@@ -19,25 +19,31 @@
 
 .app-title {
   display: flex;
+  flex-direction: column;
   align-items: center;
   background-color: #EDF2F4;
   padding: .5rem;
   margin: .5rem;
   border-radius: 20px;
-  border: solid black 2px;
   font-size: large;
+  color: #2B2D42 ;
 }
 
-.logo{
+.logo {
   margin: auto;
+  padding: .25rem;
+  border-radius: 100%;
+  background-color: white ;
   width: 6rem;
 }
 
 .about-us {
-  padding: 1rem;
+  padding: .5rem;
   font-size: large;
   font-weight: bold;
-  color: #EDF2F4;
+  color: #2B2D42;
+  background-color: #EDF2F4;
+  border-radius: 20px;
 }
 
 .search-and-cart {
@@ -47,10 +53,34 @@
   margin: 1rem;
 }
 
+.search-container {
+  padding: .5rem;
+  display: flex;
+  background-color: white;
+  border-radius: 15px;
+}
+
 .search-input {
   height: 2rem;
   border-radius: 10px;
-  border: auto;
+  border: none;
+}
+
+.search-icon {
+  width: 1.75rem;
+  background-color: white;
+}
+
+.cart {
+  padding: .5rem;
+  margin-left: 1rem;
+  display: flex;
+  background-color: #EDF2F4;
+  border-radius: 15px;
+}
+
+.cart-icon {
+  width: 3rem;
 }
 
 .search-icon:hover,
@@ -63,36 +93,8 @@
   opacity: .7;
 }
 
-.search-container {
-  padding: 1rem 1rem;
-  display: flex;
-  background-color: #D90429;
-  border: solid black 2px;
-  border-radius: 30px;
-}
-
-.search-icon {
-  width: 2rem;
-  border: solid black 3px;
-  border-radius: 10px;
-  background-color: #EDF2F4;
-}
-
-.cart {
-  padding: .5rem;
-  margin: .5rem;
-  display: flex;
-  background-color: #D90429;
-  border: solid black 2px;
-  border-radius: 15px;
-}
-
-.cart-icon {
-  width: 3rem;
-}
-
 @media (max-width: 480px) {
   .navbar {
-    width: 190vw;
+    width: 50rem;
   }
 }

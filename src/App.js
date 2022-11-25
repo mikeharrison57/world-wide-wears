@@ -1,4 +1,4 @@
-// Functions and Hooks
+// Hooks and React Router
 import { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
