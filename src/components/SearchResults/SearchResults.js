@@ -6,6 +6,7 @@ import { fetchSearchedItems } from '../../utils/api-calls';
 
 // Components
 import Product from '../Product/Product';
+import Loading from '../Loading/Loading';
 import Error from '../Error/Error';
 
 const SearchResults = ({ searchTerm, getCartProducts }) => {
@@ -62,7 +63,7 @@ const SearchResults = ({ searchTerm, getCartProducts }) => {
 							</h1>
 						</div>
 					) : (
-						<h1 style={{ textAlign: 'center' }}>LOADING...</h1>
+						<Loading />
 					)
 				) : (
 					<section className='search-result-page'>
