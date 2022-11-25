@@ -19,7 +19,7 @@ const App = () => {
 
 	const removeCartProduct = (id) => {
 		const remainingCartItems = cartProducts.filter((product) => {
-			return product.id !== id;
+			return product.uniqueId !== id;
 		});
 		setCartProducts([...remainingCartItems]);
 	};

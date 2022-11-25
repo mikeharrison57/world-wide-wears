@@ -1,4 +1,5 @@
 import './SearchResults.css';
+import { v4 as uuid } from 'uuid';
 
 // Hooks and Functions
 import { useState, useEffect } from 'react';
@@ -41,11 +42,12 @@ const SearchResults = ({ searchTerm, getCartProducts }) => {
 	};
 
 	const productCards = searchedProducts.map((product) => {
+		const uniqueIdProducts = { uniqueId: uuid(), ...product };
 		return (
 			<Product
 				key={Math.random()}
 				getCartProducts={getCartProducts}
-				product={product}
+				product={uniqueIdProducts}
 			/>
 		);
 	});

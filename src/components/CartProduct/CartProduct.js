@@ -3,7 +3,7 @@ import './CartProduct.css';
 const CartProduct = ({ product, removeCartProduct }) => {
 	const confirmCartRemoval = () => {
 		alert(`${product.name} removed from cart!`)
-		removeCartProduct(product.id);
+		removeCartProduct(product.uniqueId);
 	};
 
 	return (
