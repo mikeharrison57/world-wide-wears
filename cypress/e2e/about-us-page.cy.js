@@ -13,4 +13,10 @@ describe('About Us Page', () => {
     cy.get('.search-input').should('exist').should('have.attr', 'type', 'text');
     cy.get('.cart-icon').should('have.attr', 'alt', 'cart-icon');
 	});
+
+  it('Should have a heading of About Us, and five paragraph tags ending with my name', () => {
+    cy.get('.title').should('have.text', 'About Us')
+    cy.get('.body').find('p').should('have.length', 4)
+    cy.get('p').last().should('have.text', '- Michael J. Harrison');
+  })
 });
