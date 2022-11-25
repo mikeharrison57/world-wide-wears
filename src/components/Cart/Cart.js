@@ -28,7 +28,7 @@ const Cart = ({ cartProducts, setCartProducts, removeCartProduct }) => {
 		<>
 			{cartCards.length ? (
 				<section className='cart-items'>
-					<h2 className='total'>Total: ${totalCost}.00</h2>
+					<h2 className='total'>Total: ${totalCost}</h2>
 					<button className='confirm-purchase' onClick={confirmPurchase}>
 						Confirm Purchase
 					</button>
