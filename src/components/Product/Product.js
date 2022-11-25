@@ -19,8 +19,8 @@ const Product = ({ product, getCartProducts }) => {
 				<p className='current-price'>${product.price}</p>
 				{product.msrp && <del className='previous-price'>${product.msrp}</del>}
 			</div>
-			<h3 className='product-name'>{product.name}</h3>
 			<button className='add-to-cart' onClick={addToCart}>Add To Cart</button>
+			<h3 className='product-name'>{product.name}</h3>
 		</article>
 	);
 };
