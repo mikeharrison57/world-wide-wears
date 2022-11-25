@@ -6,6 +6,8 @@
 - [Abstract](#abstract)
 - [Deployed Link](#deployed-link)
 - [Illustrations](#illustrations)
+  - [Desktop](#desktop)
+  - [Mobile](#mobile)
 - [Application Wireframes](#application-wireframes)
   - [Main Page](#main-page)
   - [Search Results](#search-results)
@@ -27,6 +29,26 @@ Welcome to World Wide Wears (WWW)! At WWW we are dedicated to providing the late
 Check out our application [HERE!](https://world-wide-wears.vercel.app/) 
 
 ## Illustrations
+
+### Desktop
+
+<img width="1424" alt="Screen Shot 2022-11-25 at 2 11 38 PM" src="https://user-images.githubusercontent.com/95496577/204056412-15f80cd9-191a-4ed4-a387-aee6105bc0ef.png">
+
+<img width="1425" alt="Screen Shot 2022-11-25 at 2 11 53 PM" src="https://user-images.githubusercontent.com/95496577/204056995-f8c03d22-8ce8-467c-9152-e039f943e738.png">
+
+<img width="1428" alt="Screen Shot 2022-11-25 at 2 12 41 PM" src="https://user-images.githubusercontent.com/95496577/204056628-81e6f2a0-e4e6-41ec-b0e5-f269015af01f.png">
+
+<img width="1401" alt="Screen Shot 2022-11-25 at 2 13 18 PM" src="https://user-images.githubusercontent.com/95496577/204056644-c94f0f2b-74f2-4798-a43b-48c9918053d5.png">
+
+### Mobile
+
+![IMG-0921](https://user-images.githubusercontent.com/95496577/204056681-7f614b75-a349-404b-8a45-b0a022512e49.jpg)
+
+![IMG-0922](https://user-images.githubusercontent.com/95496577/204056691-427eddf9-b5f2-4736-a291-3afd483d0e0c.jpg)
+
+![IMG-0923](https://user-images.githubusercontent.com/95496577/204056699-6824bc4c-6efd-4c05-92f3-4846b941b427.jpg)
+
+![IMG-0925](https://user-images.githubusercontent.com/95496577/204056730-cd9c5e1d-c811-44f7-8134-7b39ad8ce1aa.jpg)
 
 ## Application Wireframes
 
