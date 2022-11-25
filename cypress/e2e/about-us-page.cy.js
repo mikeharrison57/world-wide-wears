@@ -1,9 +1,8 @@
-// import { primaryUrl } from '../../src/utils/api-calls';
+import { primaryUrl } from '../../src/utils/api-calls';
 
 describe('About Us Page', () => {
 	beforeEach(() => {
 		cy.visit('http://localhost:3000/about-us');
-    // cy.intercept('GET', `${primaryUrl}sale&resultsFormat=native&page=2`);
 	});
 
 	it('Should have a navigation bar with an application logo, about us link, cart link, and search bar', () => {
@@ -18,5 +17,17 @@ describe('About Us Page', () => {
     cy.get('.title').should('have.text', 'About Us')
     cy.get('.body').find('p').should('have.length', 4)
     cy.get('p').last().should('have.text', '- Michael J. Harrison');
+  })
+
+  it('Should allow the user to navigate back to the home page, to a search result page, and to the cart page', () => {
+    cy.get('.app-title').click();
+    cy.url().should('eq', 'http://localhost:3000/');
+    cy.go('back');
+    cy.url().should('eq', 'http://localhost:3000/about-us');
+    cy.get('.cart').click()
+    cy.url().should('eq', 'http://localhost:3000/cart');
+    cy.go('back');
+    cy.get('.search-input').type('jeans').type('{enter}');
+    cy.url().should('eq', 'http://localhost:3000/jeans');
   })
 });
