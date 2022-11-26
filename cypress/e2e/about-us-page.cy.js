@@ -1,5 +1,3 @@
-import { primaryUrl } from '../../src/utils/api-calls';
-
 describe('About Us Page', () => {
 	beforeEach(() => {
 		cy.visit('http://localhost:3000/about-us');
