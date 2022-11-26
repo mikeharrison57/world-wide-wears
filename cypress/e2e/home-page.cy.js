@@ -40,4 +40,18 @@ describe('Home Page', () => {
 			.contains('Addicted To Love Blush Pink Maxi Dress');
 		cy.get('.product-card').last().contains('$62');
 	});
+
+  it('Should allow the user to navigate to the About Us page, to a search result page, and back to the home page.', () => {
+		cy.get('.about-us').click();
+		cy.url().should('eq', 'http://localhost:3000/about-us');
+		cy.go('back');
+		cy.url().should('eq', 'http://localhost:3000/');
+		cy.get('.cart').click();
+		cy.url().should('eq', 'http://localhost:3000/cart');
+		cy.go('back');
+		cy.get('.search-input').type('blue').type('{enter}');
+		cy.url().should('eq', 'http://localhost:3000/blue');
+	});
+
+  it('Should display a ')
 });
