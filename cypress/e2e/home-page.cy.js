@@ -101,23 +101,3 @@ describe('Home Page', () => {
 		cy.get('.error-img').should('have.attr', 'alt', 'error-img');
 	});
 });
-
-// it('Should display an error message if a network request fails.', () => {
-// 	cy.intercept(
-// 		'GET',
-// 		'https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=tBjYHYybf8UG944wMFG4Hn44NXmN9Lyj',
-// 		{
-// 			statusCode: 404,
-// 			body: {
-// 				error:
-// 					'Cannot GET /svc/books/v3/lists/full-overview.json?api-key=tBjYHYybf8UG944wMFG4Hn44NXmN9Ly',
-// 			},
-// 		}
-// 	);
-// 	cy.visit('http://localhost:3000')
-// 		.get('.error-message')
-// 		.should(
-// 			'have.text',
-// 			"Hey, we're having some technical difficulties right now.  Come see us again soon!"
-// 		);
-// });
