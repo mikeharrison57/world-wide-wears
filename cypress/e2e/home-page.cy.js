@@ -19,4 +19,25 @@ describe('Home Page', () => {
 			'Check Out Our Black Friday Deals Below'
 		);
 	});
+
+	it('Should have 24 Black Friday sale products with an image, prices, cart button, and name.', () => {
+		cy.get('.product-container')
+			.find('.product-card')
+			.should('have.length', 24);
+		cy.get('.product-image').should('have.length', 24);
+		cy.get('.prices').should('have.length', 24);
+		cy.get('.add-to-cart').should('have.length', 24);
+		cy.get('.product-name').should('have.length', 24);
+	});
+
+	it('Should have different Black Friday sale products displayed.', () => {
+		cy.get('.product-card')
+			.first()
+			.contains('Bonus Points Pink Pendant Earrings');
+		cy.get('.product-card').first().contains('$30');
+		cy.get('.product-card')
+			.last()
+			.contains('Addicted To Love Blush Pink Maxi Dress');
+		cy.get('.product-card').last().contains('$62');
+	});
 });
