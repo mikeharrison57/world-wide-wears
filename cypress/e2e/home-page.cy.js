@@ -1,3 +1,5 @@
+import { primaryUrl } from '../../src/utils/api-calls';
+
 describe('Home Page', () => {
 	beforeEach(() => {
 		cy.visit('http://localhost:3000/');
@@ -41,7 +43,7 @@ describe('Home Page', () => {
 		cy.get('.product-card').last().contains('$62');
 	});
 
-  it('Should allow the user to navigate to the About Us page, to a search result page, and back to the home page.', () => {
+	it('Should allow the user to navigate to the About Us page, to a search result page, and back to the home page.', () => {
 		cy.get('.about-us').click();
 		cy.url().should('eq', 'http://localhost:3000/about-us');
 		cy.go('back');
@@ -53,5 +55,39 @@ describe('Home Page', () => {
 		cy.url().should('eq', 'http://localhost:3000/blue');
 	});
 
-  it('Should display a ')
+	it('Should display an Error component if the API call fails.', () => {
+		cy.intercept('GET', `${primaryUrl}sale&resultsFormat=native&page=2`, {
+			statusCode: 404,
+			body: {
+				error: 'Cannot GET /sale&resultsFormat=native&page=2',
+			},
+		});
+		cy.visit('http://localhost:3000')
+			.get('.error')
+			.should(
+				'have.text',
+				"We're sorry, we're having some technical difficulties right now please come back later. Thank you!"
+			)
+    cy.get('.error-img').should('have.attr', 'alt', 'error-img');
+	});
 });
+
+// it('Should display an error message if a network request fails.', () => {
+// 	cy.intercept(
+// 		'GET',
+// 		'https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=tBjYHYybf8UG944wMFG4Hn44NXmN9Lyj',
+// 		{
+// 			statusCode: 404,
+// 			body: {
+// 				error:
+// 					'Cannot GET /svc/books/v3/lists/full-overview.json?api-key=tBjYHYybf8UG944wMFG4Hn44NXmN9Ly',
+// 			},
+// 		}
+// 	);
+// 	cy.visit('http://localhost:3000')
+// 		.get('.error-message')
+// 		.should(
+// 			'have.text',
+// 			"Hey, we're having some technical difficulties right now.  Come see us again soon!"
+// 		);
+// });
