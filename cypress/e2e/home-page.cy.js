@@ -55,7 +55,21 @@ describe('Home Page', () => {
 		cy.url().should('eq', 'http://localhost:3000/blue');
 	});
 
-	it('Should display an Error component if the API call fails.', () => {
+	it('Should allow the user to add Black Friday sale products to their cart.', () => {
+		cy.get('.add-to-cart').first().click();
+		cy.get('.add-to-cart').last().click();
+		cy.get('.cart').click();
+		cy.get('.cart-product-card')
+			.first()
+			.contains('Bonus Points Pink Pendant Earrings');
+		cy.get('.cart-product-card').first().contains('$30');
+		cy.get('.cart-product-card')
+			.last()
+			.contains('Addicted To Love Blush Pink Maxi Dress');
+		cy.get('.cart-product-card').last().contains('$62');
+	});
+
+	it('Should display an Error component if the API call fails with a 404 error.', () => {
 		cy.intercept('GET', `${primaryUrl}sale&resultsFormat=native&page=2`, {
 			statusCode: 404,
 			body: {
@@ -67,8 +81,24 @@ describe('Home Page', () => {
 			.should(
 				'have.text',
 				"We're sorry, we're having some technical difficulties right now please come back later. Thank you!"
-			)
-    cy.get('.error-img').should('have.attr', 'alt', 'error-img');
+			);
+		cy.get('.error-img').should('have.attr', 'alt', 'error-img');
+	});
+
+	it('Should display an Error component if the API call fails with a 500 error.', () => {
+		cy.intercept('GET', `${primaryUrl}sale&resultsFormat=native&page=2`, {
+			statusCode: 500,
+			body: {
+				error: 'Cypress forced 500',
+			},
+		});
+		cy.visit('http://localhost:3000')
+			.get('.error')
+			.should(
+				'have.text',
+				"We're sorry, we're having some technical difficulties right now please come back later. Thank you!"
+			);
+		cy.get('.error-img').should('have.attr', 'alt', 'error-img');
 	});
 });
 
