@@ -40,4 +40,17 @@ describe('Cart Page', () => {
     cy.get('.remove-from-cart').click();
     cy.get('.cart-product-card').should('have.length', 0);
   })
+
+  it('Should display a total cost for items in the cart, and allow the user to Confirm Purchase which empties the cart', () => {
+    cy.visit('http://localhost:3000/');
+    cy.get('.add-to-cart').first().click();
+		cy.get('.add-to-cart').last().click();
+    cy.get('.cart').click();
+    cy.get('.cart-product-card').should('have.length', 2);
+    cy.get('.cart-product-card').first().contains('$30')
+    cy.get('.cart-product-card').last().contains('$62');
+    cy.get('.total').should('have.text', 'Total: $92');
+    cy.get('.confirm-purchase').click();
+    cy.get('.cart-items').contains('Cart Empty');
+  })
 });
