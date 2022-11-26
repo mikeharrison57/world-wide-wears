@@ -15,7 +15,7 @@ describe('Cart Page', () => {
 		cy.get('.cart-items').find('h1').should('have.text', 'Cart Empty');
 	});
 
-	it('Should allow the user to add items from the home page and a search results page.', () => {
+	it('Should be able to navigate to the home and search pages, and allow the user to add items from both.', () => {
 		cy.get('.app-title').click();
 		cy.url().should('eq', 'http://localhost:3000/');
 		cy.get('.add-to-cart').first().click();
@@ -31,4 +31,13 @@ describe('Cart Page', () => {
 			.last()
 			.should('have.text', 'Cutting Edge Medium Wash Distressed Skinny Jeans');
 	});
+
+  it('Should allow the user to delete items from the cart individually', () => {
+    cy.visit('http://localhost:3000/');
+    cy.get('.add-to-cart').last().click();
+    cy.get('.cart').click();
+    cy.get('.cart-product-card').should('have.length', 1);
+    cy.get('.remove-from-cart').click();
+    cy.get('.cart-product-card').should('have.length', 0);
+  })
 });
