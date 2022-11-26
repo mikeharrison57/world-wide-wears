@@ -110,9 +110,9 @@ Some future features I’d like to add to this application are:
 
 4. Run `npm install` in your terminal to install project dependencies.
 
-5. Run `npm start` in the terminal to see the application. 
+5. Run `npm start` in the terminal to see the application in development mode on `http://localhost:3000/`. 
 
-6. Run `npm run cypress` in the terminal  to run cypress tests. 
+6. Run `npm run cypress` in the terminal to start Cypress, select _E2E Testing_, click _Start E2E Testing in Chrome_, and pick a E2E Spec to run tests for.   
 
 7. When finished with the application and or testing, type `Control + C` in the terminal to stop running the application. 
 
