@@ -1,10 +1,9 @@
 import { primaryUrl } from '../../src/utils/api-calls';
 
-describe('Home Page', () => {
+describe('Search results pages.', () => {
 	beforeEach(() => {
-    cy.intercept('GET', `${primaryUrl}blue&resultsFormat=native&page=1`)
-		cy.visit('http://localhost:3000/blue')
-	})
+		cy.visit('http://localhost:3000/blue');
+	});
 
 	it('Should have a navigation bar with an application logo, about us link, cart link, and search bar', () => {
 		cy.get('.app-title').contains('World Wide Wears');
@@ -12,5 +11,34 @@ describe('Home Page', () => {
 		cy.get('.about-us').should('have.text', 'ABOUT US');
 		cy.get('.search-input').should('exist').should('have.attr', 'type', 'text');
 		cy.get('.cart-icon').should('have.attr', 'alt', 'cart-icon');
-	})
-})
+	});
+
+	it('Should display how many total results there are for the search term, and how many per page.', () => {
+		cy.get('.results-message')
+			.first()
+			.should('have.text', '925 Search results for "blue"');
+		cy.get('.search-result-page > :nth-child(3)').should('have.text', '1 - 24');
+	});
+
+	it('Should have 24 product cards containing the search term.', () => {
+		cy.get('.result-container').find('.product-card').should('have.length', 23);
+		cy.get('.product-card').first().contains('Blue');
+		cy.get('.product-card').last().contains('Blue');
+	});
+
+	it('Should have two next buttons on first results page, and two previous and two next buttons on second page', () => {
+		cy.get('.next-button').should('have.length', 2);
+		cy.get('.previous-button').should('have.length', 0);
+		cy.get('.next-button').first().click();
+		cy.get('.previous-button').should('have.length', 2);
+	});
+
+	it('Should have two previous buttons on last results page, and two previous and two next buttons on second to last page', () => {
+    cy.visit('http://localhost:3000/ball');
+		cy.get('.next-button').last().dblclick();
+		cy.get('.previous-button').should('have.length', 2);
+    cy.get('.next-button').should('have.length', 0);
+    cy.get('.previous-button').last().click()
+    cy.get('.next-button').should('have.length', 2);
+	});
+});
