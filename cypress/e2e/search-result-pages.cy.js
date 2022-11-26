@@ -66,4 +66,15 @@ describe('Search results pages.', () => {
 				.should('have.text', 'Ready Or Not Blue Print Jumpsuit');
 			cy.get('.cart-product-card').last().contains('$49');
 		});
+  
+  it('Should allow the user to visit a different search results page based on search input.', () => {
+    cy.get('.product-card').first().contains('Blue');
+    cy.get('.search-input').type('orange').type('{enter}');
+    cy.url().should('eq', 'http://localhost:3000/orange');
+    cy.get('.product-card')
+			.first()
+			.should('not.contain', 'Blue');
+    cy.get('.product-card').first().contains('Orange');
+  })
+
 });
