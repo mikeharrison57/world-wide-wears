@@ -41,4 +41,29 @@ describe('Search results pages.', () => {
     cy.get('.previous-button').last().click()
     cy.get('.next-button').should('have.length', 2);
 	});
+
+  it('Should display different product cards based on page number.', () => {
+    cy.get('.next-button').first().should('have.text', '2')
+    cy.get('.product-name')
+			.first()
+			.should('have.text', 'Ideal Spring Denim Blue Wedges');
+    cy.get('.next-button').last().click();
+    cy.get('.product-card')
+			.first()
+			.should('not.contain', 'Ideal Spring Denim Blue Wedges');
+  })
+
+  it('Should allow the user to add search result products to their cart.', () => {
+			cy.get('.add-to-cart').first().click();
+			cy.get('.add-to-cart').last().click();
+			cy.get('.cart').click();
+			cy.get('.product-name')
+				.first()
+				.should('have.text', 'Ideal Spring Denim Blue Wedges');
+			cy.get('.cart-product-card').first().contains('$30');
+			cy.get('.product-name')
+				.last()
+				.should('have.text', 'Ready Or Not Blue Print Jumpsuit');
+			cy.get('.cart-product-card').last().contains('$49');
+		});
 });

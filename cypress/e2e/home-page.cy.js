@@ -43,18 +43,6 @@ describe('Home Page', () => {
 		cy.get('.product-card').last().contains('$62');
 	});
 
-	it('Should allow the user to navigate to the About Us page, to a search result page, and back to the home page.', () => {
-		cy.get('.about-us').click();
-		cy.url().should('eq', 'http://localhost:3000/about-us');
-		cy.go('back');
-		cy.url().should('eq', 'http://localhost:3000/');
-		cy.get('.cart').click();
-		cy.url().should('eq', 'http://localhost:3000/cart');
-		cy.go('back');
-		cy.get('.search-input').type('blue').type('{enter}');
-		cy.url().should('eq', 'http://localhost:3000/blue');
-	});
-
 	it('Should allow the user to add Black Friday sale products to their cart.', () => {
 		cy.get('.add-to-cart').first().click();
 		cy.get('.add-to-cart').last().click();
@@ -67,6 +55,18 @@ describe('Home Page', () => {
 			.last()
 			.contains('Addicted To Love Blush Pink Maxi Dress');
 		cy.get('.cart-product-card').last().contains('$62');
+	});
+
+	it('Should allow the user to navigate to the About Us page, to a search result page, and back to the home page.', () => {
+		cy.get('.about-us').click();
+		cy.url().should('eq', 'http://localhost:3000/about-us');
+		cy.go('back');
+		cy.url().should('eq', 'http://localhost:3000/');
+		cy.get('.cart').click();
+		cy.url().should('eq', 'http://localhost:3000/cart');
+		cy.go('back');
+		cy.get('.search-input').type('blue').type('{enter}');
+		cy.url().should('eq', 'http://localhost:3000/blue');
 	});
 
 	it('Should display an Error component if the API call fails with a 404 error.', () => {
