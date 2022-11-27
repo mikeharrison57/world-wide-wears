@@ -2,7 +2,7 @@ import './CartProduct.css';
 
 const CartProduct = ({ product, removeCartProduct }) => {
 	const confirmCartRemoval = () => {
-		alert(`${product.name} removed from cart!`)
+		alert(`${product.name} removed from cart!`);
 		removeCartProduct(product.uniqueId);
 	};
 
@@ -17,12 +17,14 @@ const CartProduct = ({ product, removeCartProduct }) => {
 			)}
 			<div className='prices-and-name'>
 				<h3 className='product-name'>{product.name}</h3>
-				<button className='remove-from-cart' onClick={confirmCartRemoval}>Remove From Cart</button>
+				<button className='remove-from-cart' onClick={confirmCartRemoval}>
+					Remove From Cart
+				</button>
 				<div className='prices'>
 					<p className='current-price'>${product.price}</p>
 					{product.msrp && (
 						<del className='previous-price'>${product.msrp}</del>
-						)}
+					)}
 				</div>
 			</div>
 		</article>

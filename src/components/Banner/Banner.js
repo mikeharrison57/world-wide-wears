@@ -9,7 +9,7 @@ const Banner = () => {
 			<img alt='banner-img' src={BannerImg} className='banner-image' />
 			<h2>Check Out Our Black Friday Deals Below!</h2>
 		</section>
-	)
+	);
 };
 
 export default Banner;
