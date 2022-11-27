@@ -1,4 +1,4 @@
-const primaryUrl =
+export const primaryUrl =
 	'https://api.searchspring.net/api/search/search.json?siteId=scmq7n&q=';
 
 export const fetchSaleItems = async () => {
