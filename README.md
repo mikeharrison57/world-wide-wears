@@ -67,8 +67,10 @@
 - JSX
 - React.js
 - React Hooks
+- React Loader Spinner
 - React Router
 - UUID v4
+- Window.localStorage
 
 ## User Stories
 
@@ -97,7 +99,7 @@
 Some future features I’d like to add to this application are:
 
 - An individual product page with additional product details (description, colors available, sizes, etc.).
-- Being able to retain cart items upon refresh with an API or local storage.
+- Seeing an item counter for dulplicate items in the cart.
 - More extensive pagination features. 
 
 ## Application Set-Up
