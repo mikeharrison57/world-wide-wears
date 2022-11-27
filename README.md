@@ -1,4 +1,4 @@
-<img width="212" alt="Screen Shot 2022-11-24 at 12 15 57 PM" src="https://user-images.githubusercontent.com/95496577/203852862-c1d27a46-5843-45d1-8d6e-a75b1d922675.png"> 
+![Screen Shot 2022-11-26 at 11 06 06 PM](https://user-images.githubusercontent.com/95496577/204121736-3d02f9fb-f1ef-46af-9f32-b349ab7d42d7.png)
 
 ## Table of Contents
 
@@ -42,7 +42,7 @@
 
 ### Mobile
 
-![IMG-0921](https://user-images.githubusercontent.com/95496577/204056681-7f614b75-a349-404b-8a45-b0a022512e49.jpg)
+![IMG_0930](https://user-images.githubusercontent.com/95496577/204121810-7acb23cb-c573-493d-946c-bb837ef14690.jpg)
 
 ![IMG-0922](https://user-images.githubusercontent.com/95496577/204056691-427eddf9-b5f2-4736-a291-3afd483d0e0c.jpg)
 
