@@ -1,5 +1,5 @@
 // Hooks and React Router
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 // Components
@@ -12,6 +12,20 @@ import SearchResults from './components/SearchResults/SearchResults';
 
 const App = () => {
 	const [cartProducts, setCartProducts] = useState([]);
+
+	useEffect(() => {
+		const storedCartData = window.localStorage.getItem('StoredCartItems');
+		if (storedCartData !== null) {
+			setCartProducts(JSON.parse(storedCartData));
+		}
+	}, []);
+
+	useEffect(() => {
+		window.localStorage.setItem(
+			'StoredCartItems',
+			JSON.stringify(cartProducts)
+		);
+	}, [cartProducts]);
 
 	const getCartProducts = (selectedProduct) => {
 		setCartProducts([...cartProducts, { ...selectedProduct }]);

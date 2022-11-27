@@ -41,6 +41,7 @@
   padding: .5rem;
   font-size: large;
   font-weight: bold;
+  text-align: center;
   color: #2B2D42;
   background-color: #EDF2F4;
   border-radius: 20px;
@@ -95,7 +96,11 @@
 
 @media (max-width: 480px) {
   .navbar {
-    width: 0;
+    width: 105vw;
+  }
+
+  .full-title {
+    display: none;
   }
 
   .heading-container,
@@ -105,14 +110,17 @@
   }
 
   .search-and-cart {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
-    .search-input {
-      width: 3rem;
-    }
-
-  .full-title {
-    display: none;
+  .search-input {
+    width: 3rem;
   }
+
+  .cart {
+    padding: .25rem;
+    margin-bottom: .5rem;
+    margin-right: 1rem;
+  }
+
 }

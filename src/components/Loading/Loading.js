@@ -1,8 +1,8 @@
 import { MagnifyingGlass } from 'react-loader-spinner';
 
 const Loading = () => {
-  return (
-		<div className='loading' style={{textAlign: 'center'}}>
+	return (
+		<div className='loading' style={{ textAlign: 'center' }}>
 			<MagnifyingGlass
 				visible={true}
 				height='300'
@@ -16,6 +16,6 @@ const Loading = () => {
 			/>
 		</div>
 	);
-}
+};
 
 export default Loading;

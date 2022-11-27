@@ -9,6 +9,6 @@
 
 @media (max-width: 480px) {
   .banner-image {
-    display: none;
+    width: 105vw;
   }
 }
